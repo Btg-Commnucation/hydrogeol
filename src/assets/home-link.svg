@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 42 42">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_7" data-name="Rectangle 7" width="19.997" height="20" fill="#0eadf4"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_6" data-name="Groupe 6" transform="translate(-47 -35)">
+    <g id="Groupe_7" data-name="Groupe 7" transform="translate(58.201 45.5)">
+      <g id="Groupe_6-2" data-name="Groupe 6" clip-path="url(#clip-path)">
+        <path id="Tracé_31" data-name="Tracé 31" d="M8.18,18.864V13.41a.227.227,0,0,1,.227-.227h3.181a.227.227,0,0,1,.227.227v5.454A1.136,1.136,0,0,0,12.953,20h3.182a1.136,1.136,0,0,0,1.136-1.136V10.683a.227.227,0,0,1,.227-.227h1.269a1.232,1.232,0,0,0,1.157-.837,1.3,1.3,0,0,0-.347-1.392L10.808.315a1.2,1.2,0,0,0-1.619,0L.421,8.226A1.3,1.3,0,0,0,.073,9.618a1.232,1.232,0,0,0,1.157.837H2.5a.227.227,0,0,1,.227.227v8.181A1.136,1.136,0,0,0,3.863,20H7.044A1.136,1.136,0,0,0,8.18,18.864Z" transform="translate(0 0)" fill="#0eadf4" fill-rule="evenodd"/>
+      </g>
+    </g>
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(47 35)" fill="none" stroke="#0eadf4" stroke-width="1">
+      <circle cx="21" cy="21" r="21" stroke="none"/>
+      <circle cx="21" cy="21" r="20.5" fill="none"/>
+    </g>
+  </g>
+</svg>
