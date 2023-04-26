@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMenu } from "../feature/menu.slice";
 import ky from "ky";
@@ -17,6 +17,8 @@ const NavLink = () => {
     (state: RootState) => state.menu
   );
   const [isLoading, setIsLoading] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const menuRef = useRef<HTMLUListElement>(null);
 
   // eslint-disable-next-line no-async-promise-executor
   const getMenu = new Promise<Response[]>(async (resolve, reject) => {
@@ -43,11 +45,22 @@ const NavLink = () => {
     }
   }, []);
 
+  const handleBurger = () => {
+      menuRef?.current?.classList.toggle('active');
+  }
+
   return (
     <>
       {!isLoading && (
         <nav className="menu">
-          <ul className="menu-container">
+          { windowWidth < 1000 && (
+            <div className="burger-menu" onClick={handleBurger}>
+              <span className="burger"></span>
+              <span className="burger"></span>
+              <span className="burger"></span>
+            </div>
+          ) }
+          <ul ref={menuRef} className="menu-container">
             {menu.map(
               (item: { ID: number; title: string; slug: string }) => (
                 <li key={item.ID}>

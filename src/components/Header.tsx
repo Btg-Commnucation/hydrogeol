@@ -37,14 +37,14 @@ const Header = () => {
   const extractSlugFromUrl = (url: string): string => {
     const urlObj = new URL(url);
     let slug = urlObj.pathname;
-  
-    if (slug.startsWith('/')) {
+
+    if (slug.startsWith("/")) {
       slug = slug.slice(1);
     }
-    if (slug.endsWith('/')) {
+    if (slug.endsWith("/")) {
       slug = slug.slice(0, -1);
     }
-  
+
     return slug;
   };
 
@@ -60,23 +60,26 @@ const Header = () => {
 
   return (
     <header>
-      {!isLoading && (
-        <>
-          <Link to="/">
-            <img
-              src={options.image_retour_accueil.url}
-              alt={options.image_retour_accueil.alt}
-            />
-          </Link>
-          <NavLink />
-          <Link to={`/${extractSlugFromUrl(options.lien_page_contact.url)}`}>
-            <img
-              src={options.image_contact.url}
-              alt={options.image_contact.alt}
-            />
-          </Link>
-        </>
-      )}
+      <div className="bg"></div>
+      <div className="container">
+        {!isLoading && (
+          <>
+            <Link to="/">
+              <img
+                src={options.image_retour_accueil.url}
+                alt={options.image_retour_accueil.alt}
+              />
+            </Link>
+            <NavLink />
+            <Link to={`/${extractSlugFromUrl(options.lien_page_contact.url)}`}>
+              <img
+                src={options.image_contact.url}
+                alt={options.image_contact.alt}
+              />
+            </Link>
+          </>
+        )}
+      </div>
     </header>
   );
 };

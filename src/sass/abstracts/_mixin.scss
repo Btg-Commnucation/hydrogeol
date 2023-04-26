@@ -20,23 +20,26 @@
     }
 }
 
-@mixin flex($direction, $justify, $align) {
+@mixin flex($justify, $align, $gap: 0, $direction: row) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
     align-items: $align;
-}
-
-@mixin grid($columns, $rows, $gap) {
-    display: grid;
-    grid-template-columns: repeat($columns, 1fr);
-    grid-template-rows: repeat($rows, 1fr);
     gap: $gap;
 }
 
-@mixin text($size, $weight, $color, $transform, $spacing, $reponse: false, $minSize: null, $maxSize: null, $minWidth: null, $maxWidth: null) {
+@mixin grid($columns, $rows, $gap, $justify, $align) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-template-rows: repeat($rows, 1fr);
+    justify-items: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin text($size, $weight, $color, $transform, $spacing, $responsive: false, $minSize: null, $minWidth: null, $maxWidth: null) {
     @if $responsive {
-        @include responsiveText($minSize, $maxSize, $minWidth, $maxWidth);
+        @include responsiveText($minSize, $size, $minWidth, $maxWidth);
     } @else {
         font-size: $size;
     }

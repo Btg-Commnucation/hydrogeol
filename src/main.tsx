@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import store from './app/store'
 import App from './App.tsx'
 import ErrorPage from './components/ErrorPage.tsx'
+import './sass/style.scss'
 
 const router = createBrowserRouter([
   {
