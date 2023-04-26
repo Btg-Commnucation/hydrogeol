@@ -11,6 +11,11 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     errorElement: <ErrorPage />
+  },
+  {
+    path: '/:slug',
+    element: <h1>Page</h1>,
+    errorElement: <ErrorPage />
   }
 ])
 
