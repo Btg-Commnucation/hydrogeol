@@ -6,6 +6,7 @@ import store from './app/store'
 import App from './App.tsx'
 import ErrorPage from './components/ErrorPage.tsx'
 import './sass/style.scss'
+import Page from './components/Page.tsx'
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/:slug',
-    element: <h1>Page</h1>,
+    element: <Page />,
     errorElement: <ErrorPage />
   }
 ])
