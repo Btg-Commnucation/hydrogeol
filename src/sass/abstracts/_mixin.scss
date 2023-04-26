@@ -31,7 +31,11 @@
 @mixin grid($columns, $rows, $gap, $justify, $align) {
     display: grid;
     grid-template-columns: repeat($columns, 1fr);
-    grid-template-rows: repeat($rows, 1fr);
+    @if $rows == auto {
+        grid-template-rows: auto;
+    } @else {
+        grid-template-rows: repeat($rows, 1fr);
+    }
     justify-items: $justify;
     align-items: $align;
     gap: $gap;

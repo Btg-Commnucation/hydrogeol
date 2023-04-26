@@ -19,6 +19,11 @@ header {
         z-index: 1;
         background: white;
         min-height: 69px;
+
+        @include var.breakpoint(desktop) {
+            gap: 1em;
+            grid-template-columns: 0.1fr 1fr 0.1fr;
+        }
     }
 
     .bg {
@@ -27,13 +32,9 @@ header {
         border: 2px solid var.$primaryColor;
         width: 100%;
         height: 69px;
-        left: -10px;
+        left: -25px;
         top: -5px;
     }
-
-    // .menu {
-    //     position: relative;
-    // }
 
     .menu-container {
         transform: translateY(-100vw);
@@ -56,6 +57,19 @@ header {
             text-decoration: none;
             transition: 0.3s ease-in-out;
 
+            &:hover {
+                color: var.$primaryColor;
+            }
+
+        }
+
+        @include var.breakpoint(desktop) {
+            position: initial;
+            transform: translateY(0);
+            flex-direction: row;
+            border: none;
+            padding: 0;
+            gap: 1.5em;
         }
     }
 
@@ -73,6 +87,10 @@ header {
             background: var.$primaryColor;
             border-radius: 10px;
 
+        }
+
+        @include var.breakpoint(desktop) {
+            display: none;
         }
     }
 }
