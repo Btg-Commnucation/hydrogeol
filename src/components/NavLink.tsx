@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setMenu } from "../feature/menu.slice";
 import ky from "ky";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 type Response = { ID: number; title: string; slug: string };
 interface RootState {
@@ -12,6 +12,7 @@ interface RootState {
 }
 
 const NavLink = () => {
+  const { slug } = useParams()
   const dispatch = useDispatch();
   const { menu }: { menu: Response[] } = useSelector(
     (state: RootState) => state.menu
@@ -64,7 +65,7 @@ const NavLink = () => {
             {menu.map(
               (item: { ID: number; title: string; slug: string }) => (
                 <li key={item.ID}>
-                  <Link to={`/${item.slug}`}>{item.title}</Link>
+                  <Link to={`/${item.slug}`} className={ slug === item.slug ? 'active' : '' }>{item.title}</Link>
                 </li>
               )
             )}

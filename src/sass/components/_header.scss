@@ -60,6 +60,10 @@ header {
             text-decoration: none;
             transition: 0.3s ease-in-out;
 
+            &.active {
+                color: var.$primaryColor;
+            }
+
             &:hover {
                 color: var.$primaryColor;
             }

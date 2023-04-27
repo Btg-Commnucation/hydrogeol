@@ -7,6 +7,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Contact from "./Contact";
 import Valeurs from "./Valeurs";
+import Loading from "./Loading";
 
 interface RootState {
   page: {
@@ -85,12 +86,12 @@ const Page = () => {
     <>
       <ScrollRestoration />
       <Header />
-      {!isLoading && (
+      {!isLoading ? (
         <>
           {data?.template === "template-contact" && <Contact page={data} />}
           {data?.template === "template-valeurs" && <Valeurs page={data} />}
         </>
-      )}
+      ): <Loading />}
       <Footer />
     </>
   );

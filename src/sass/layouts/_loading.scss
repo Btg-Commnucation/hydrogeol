@@ -1,0 +1,96 @@
+@use "../abstracts" as var;
+
+.loading {
+  padding-top: 20rem;
+  background: var.$secondaryColor;
+  width: 100vw;
+  overflow: hidden;
+
+  .container {
+    max-width: 95%;
+    margin: 0 auto;
+    @include var.flex(center, center, 2rem, column);
+  }
+
+  .logo {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    @include var.flex(center, center, 0);
+
+    .logo-img {
+      position: relative;
+      z-index: 2;
+      object-fit: contain;
+      height: 250px;
+    }
+
+    .pulse {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        margin: auto;
+        width: 100%;
+        background: var.$primaryColor;
+        border-radius: 100%;
+        height: 100%;
+        animation: pulse-animation 6s infinite;
+        filter: blur(100%);
+    }
+
+    .pulse-1 {
+      z-index: 0;
+      position: absolute;
+        inset: 0;
+        margin: auto;
+        width: 100%;
+        background: var.$primaryColor;
+        border-radius: 100%;
+        height: 100%;
+        animation: pulse-animation 6s infinite;
+        filter: blur(100%);
+      animation-delay: 3s;
+    }
+  }
+
+  h1 {
+    @include var.text(
+      80,
+      700,
+      var.$primaryColor,
+      initial,
+      auto,
+      true,
+      50,
+      320,
+      1920
+    );
+    position: relative;
+    width: min-content;
+    white-space: pre-wrap;
+
+    span {
+      position: absolute;
+      color: transparent;
+      -webkit-text-stroke: 1px black;
+      top: 0.5%;
+      left: 1%;
+    }
+  }
+}
+
+@keyframes pulse-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.3;
+    filter: drop-shadow(0 0 10px var.$primaryColor);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
