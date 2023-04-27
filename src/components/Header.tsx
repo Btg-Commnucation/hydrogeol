@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ky from "ky";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,6 +18,7 @@ const Header = () => {
     (state: RootState) => state.menu
   );
   const [isLoading, setIsLoading] = useState(true);
+  const headerRef = useRef<HTMLHtmlElement | null>(null)
 
   // eslint-disable-next-line no-async-promise-executor
   const getOptions = new Promise<Response[]>(async (resolve, reject) => {
@@ -59,7 +60,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
+    <header ref={headerRef}>
       <div className="bg"></div>
       <div className="container">
         {!isLoading && (

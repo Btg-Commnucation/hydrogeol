@@ -1,12 +1,13 @@
 @use '../abstracts' as var;
 
 header {
-    position: relative;
+    position: fixed;
     z-index: 99;
-    background: white;
     @include var.flex(center, center, 10%);
-    width: min(100%, 863px);
-    min-height: 95px;
+    width: min(95%, 863px);
+    min-height: 77px;
+    top: 0;
+    left: 0;
 
     .container {
         @include var.grid(3, 1, 3em, center, center);
@@ -14,6 +15,7 @@ header {
         padding: 0 1rem;
         position: absolute;
         top: 8px;
+        left: 1%;
         border: 2px solid var.$primaryColor;
         padding: 1rem 2rem;
         z-index: 1;
@@ -31,9 +33,10 @@ header {
         z-index: 0;
         border: 2px solid var.$primaryColor;
         width: 100%;
-        height: 69px;
+        height: 70px;
         left: -25px;
         top: -5px;
+        background: white;
     }
 
     .menu-container {

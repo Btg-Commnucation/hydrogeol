@@ -35,22 +35,22 @@ const Page = () => {
     }
   });
 
-  const handlePage = () => {
-    page.map((item) => {
+  const handlePage = (payload: Response[]) => {
+    payload.map((item) => {
         if( item.slug === slug ) {
             setData(item)
+            setIsLoading(false)
         }
     })
-    setIsLoading(false)
   }
 
   useEffect(() => {
     if (Object.keys(page).length === 0 && page.constructor === Object) {
       getPage
         .then((response) => dispatch(setPage(response)))
-        .then(() => handlePage());
+        .then((response) => handlePage(response.payload));
     } else {
-        handlePage()
+        handlePage(page)
     }
   }, [slug]);
 
