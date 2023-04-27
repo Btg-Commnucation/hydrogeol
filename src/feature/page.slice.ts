@@ -7,7 +7,7 @@ const pageSlice = createSlice({
         page: {}
     },
     reducers: {
-        setPage: (state: { [key: string]: any }, action) => {
+        setPage: (state: { page: { [key: string]: any }}, action) => {
             state.page = action.payload
         }
     }

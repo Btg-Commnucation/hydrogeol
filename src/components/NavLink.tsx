@@ -51,7 +51,7 @@ const NavLink = () => {
 
   return (
     <>
-      {!isLoading && (
+      {!isLoading ? (
         <nav className="menu">
           { windowWidth < 1000 && (
             <div className="burger-menu" onClick={handleBurger}>
@@ -68,6 +68,30 @@ const NavLink = () => {
                 </li>
               )
             )}
+          </ul>
+        </nav>
+      ) : (
+        <nav className="menu">
+          { windowWidth < 1000 && (
+            <div className="burger-menu" onClick={handleBurger}>
+              <span className="burger"></span>
+              <span className="burger"></span>
+              <span className="burger"></span>
+            </div>
+          ) }
+          <ul ref={menuRef} className="menu-container">
+            {/* {menu.map(
+              (item: { ID: number; title: string; slug: string }) => (
+                <li key={item.ID}>
+                  <Link to={`/${item.slug}`}>{item.title}</Link>
+                </li>
+              )
+            )} */}
+            { Array.from({ length: 7 }).map((_, index) => (
+              <li key={index}>
+                <a href="#">Chargement ...</a>
+              </li>
+            )) }
           </ul>
         </nav>
       )}

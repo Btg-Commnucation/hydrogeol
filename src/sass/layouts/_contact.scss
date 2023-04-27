@@ -50,7 +50,7 @@
     }
 
     h1 {
-        @include var.text(87, 700, var.$primaryColor, initial, auto, true, 60, 320, 1920);
+        @include var.text(116, 700, var.$primaryColor, initial, auto, true, 60, 320, 1920);
         position: relative;
         width: min-content;
         white-space: pre-wrap;

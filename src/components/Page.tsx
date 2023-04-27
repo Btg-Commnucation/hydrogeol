@@ -6,19 +6,46 @@ import { useParams, ScrollRestoration } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Contact from "./Contact";
+import Valeurs from "./Valeurs";
 
-type Response = { [key: string]: any };
 interface RootState {
   page: {
-    page: Response[];
+    page: PageType[];
   };
 }
+
+export interface PageProps {
+  page: PageType;
+}
+
+export type PageType = {
+  title: string,
+  content: string,
+  acf: {
+    image_haut_de_page?: {
+      url: string,
+      alt: string
+    },
+    coordonnees?: string,
+    banner_image?: {
+      url: string,
+      alt: string
+    },
+    logo?: {
+      url: string,
+      alt: string
+    },
+    mot_fond_bleu?: string
+  },
+  template: string,
+  slug: string
+};
 
 const Page = () => {
   const { slug } = useParams();
   const dispatch = useDispatch();
-  const [data, setData] = useState<{ [key: string]: any }>();
-  const { page }: { page: Response[] } = useSelector(
+  const [data, setData] = useState<PageType>();
+  const { page }: { page: PageType[] } = useSelector(
     (state: RootState) => state.page
   );
   const [isLoading, setIsLoading] = useState(true);
@@ -35,14 +62,14 @@ const Page = () => {
     }
   });
 
-  const handlePage = (payload: Response[]) => {
+  const handlePage = (payload: PageType[]) => {
     payload.map((item) => {
-        if( item.slug === slug ) {
-            setData(item)
-            setIsLoading(false)
-        }
-    })
-  }
+      if (item.slug === slug) {
+        setData(item);
+        setIsLoading(false);
+      }
+    });
+  };
 
   useEffect(() => {
     if (Object.keys(page).length === 0 && page.constructor === Object) {
@@ -50,7 +77,7 @@ const Page = () => {
         .then((response) => dispatch(setPage(response)))
         .then((response) => handlePage(response.payload));
     } else {
-        handlePage(page)
+      handlePage(page);
     }
   }, [slug]);
 
@@ -58,11 +85,12 @@ const Page = () => {
     <>
       <ScrollRestoration />
       <Header />
-      {!isLoading ? (
+      {!isLoading && (
         <>
-            {data?.template === "template-contact" && <Contact page={data} />}
+          {data?.template === "template-contact" && <Contact page={data} />}
+          {data?.template === "template-valeurs" && <Valeurs page={data} />}
         </>
-      ) : <h1>{data?.title}</h1>}
+      )}
       <Footer />
     </>
   );

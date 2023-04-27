@@ -18,7 +18,7 @@ const Header = () => {
     (state: RootState) => state.menu
   );
   const [isLoading, setIsLoading] = useState(true);
-  const headerRef = useRef<HTMLHtmlElement | null>(null)
+  const headerRef = useRef<HTMLHtmlElement | null>(null);
 
   // eslint-disable-next-line no-async-promise-executor
   const getOptions = new Promise<Response[]>(async (resolve, reject) => {
