@@ -25,7 +25,9 @@
       height: 250px;
     }
 
+
     .pulse {
+      &, &-1 {
         position: absolute;
         z-index: 0;
         inset: 0;
@@ -34,21 +36,15 @@
         background: var.$primaryColor;
         border-radius: 100%;
         height: 100%;
-        animation: pulse-animation 6s infinite;
+        opacity: 0;
         filter: blur(100%);
+        transform: scale(0);
+        animation: pulse-animation 6s infinite;
+      }
+
     }
 
     .pulse-1 {
-      z-index: 0;
-      position: absolute;
-        inset: 0;
-        margin: auto;
-        width: 100%;
-        background: var.$primaryColor;
-        border-radius: 100%;
-        height: 100%;
-        animation: pulse-animation 6s infinite;
-        filter: blur(100%);
       animation-delay: 3s;
     }
   }

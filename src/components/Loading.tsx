@@ -10,7 +10,7 @@ const Loading = () => {
       const timeoutId = setTimeout(() => {
         setText(text + fullText[currentIndex]);
         setCurrentIndex(currentIndex + 1);
-      }, 100); // 100 ms de délai entre chaque lettre
+      }, 300); // 100 ms de délai entre chaque lettre
 
       return () => clearTimeout(timeoutId);
     } else {

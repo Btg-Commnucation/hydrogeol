@@ -12,6 +12,11 @@
 
   .right {
     display: none;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
 
     @include var.breakpoint(var.$wide) {
       display: block;
