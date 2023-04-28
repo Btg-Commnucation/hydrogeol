@@ -81,16 +81,9 @@ const NavLink = () => {
             </div>
           ) }
           <ul ref={menuRef} className="menu-container">
-            {/* {menu.map(
-              (item: { ID: number; title: string; slug: string }) => (
-                <li key={item.ID}>
-                  <Link to={`/${item.slug}`}>{item.title}</Link>
-                </li>
-              )
-            )} */}
-            { Array.from({ length: 7 }).map((_, index) => (
+            { Array.from({ length: 3 }).map((_, index) => (
               <li key={index}>
-                <a href="#">Chargement ...</a>
+                <a href="#">Chargement</a>
               </li>
             )) }
           </ul>
