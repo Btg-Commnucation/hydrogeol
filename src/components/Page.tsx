@@ -9,8 +9,10 @@ import Contact from "./Contact";
 import Valeurs from "./Valeurs";
 import Loading from "./Loading";
 import Default from "./Default";
+import { AcfType } from "../assets/type";
+import Qualifications from "./Qualifications";
 
-interface RootState {
+export interface RootState {
   page: {
     page: PageType[];
   };
@@ -20,26 +22,10 @@ export interface PageProps {
   page: PageType;
 }
 
-type Image = {
-  url: string;
-  alt: string;
-  ID: number;
-};
-
 export type PageType = {
   title: string;
   content: string;
-  acf: {
-    list_haut_de_page?: string;
-    titre_premier_paragraphe?: string;
-    image_premier_paragraphe?: Image;
-    contenu_premier_paragraphe?: string;
-    image_haut_de_page?: Image;
-    coordonnees?: string;
-    banner_image?: Image;
-    logo?: Image;
-    mot_fond_bleu?: string;
-  };
+  acf: AcfType;
   template: string;
   slug: string;
 };
@@ -93,6 +79,9 @@ const Page = () => {
           {data?.template === "template-contact" && <Contact page={data} />}
           {data?.template === "template-valeurs" && <Valeurs page={data} />}
           {data?.template === "default" && <Default page={data} />}
+          {data?.template === "template-qualifications" && (
+            <Qualifications page={data} />
+          )}
         </>
       ) : (
         <Loading />

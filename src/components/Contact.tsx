@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { PageProps } from "./Page.tsx";
 
-
 const Contact: FC<PageProps> = ({ page }) => {
   return (
     <article className="contact-page">
