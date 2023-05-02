@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import Contact from "./Contact";
 import Valeurs from "./Valeurs";
 import Loading from "./Loading";
+import Default from "./Default";
 
 interface RootState {
   page: {
@@ -19,27 +20,28 @@ export interface PageProps {
   page: PageType;
 }
 
+type Image = {
+  url: string;
+  alt: string;
+  ID: number;
+};
+
 export type PageType = {
-  title: string,
-  content: string,
+  title: string;
+  content: string;
   acf: {
-    image_haut_de_page?: {
-      url: string,
-      alt: string
-    },
-    coordonnees?: string,
-    banner_image?: {
-      url: string,
-      alt: string
-    },
-    logo?: {
-      url: string,
-      alt: string
-    },
-    mot_fond_bleu?: string
-  },
-  template: string,
-  slug: string
+    list_haut_de_page?: string;
+    titre_premier_paragraphe?: string;
+    image_premier_paragraphe?: Image;
+    contenu_premier_paragraphe?: string;
+    image_haut_de_page?: Image;
+    coordonnees?: string;
+    banner_image?: Image;
+    logo?: Image;
+    mot_fond_bleu?: string;
+  };
+  template: string;
+  slug: string;
 };
 
 const Page = () => {
@@ -90,8 +92,11 @@ const Page = () => {
         <>
           {data?.template === "template-contact" && <Contact page={data} />}
           {data?.template === "template-valeurs" && <Valeurs page={data} />}
+          {data?.template === "default" && <Default page={data} />}
         </>
-      ): <Loading />}
+      ) : (
+        <Loading />
+      )}
       <Footer />
     </>
   );
