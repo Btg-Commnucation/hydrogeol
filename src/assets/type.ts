@@ -7,6 +7,7 @@ export type Image = {
 export type Link = {
   url: string;
   title: string;
+  target: string;
 };
 
 export type AcfType = {
@@ -18,8 +19,13 @@ export type AcfType = {
   banner_image?: Image;
   titre_references?: string;
   lien_vers_une_page?: Link;
-  texte_reference?: string;
+  texte_references?: string;
   texte_fond_blue?: string;
+  references?: {
+    descriptif: string;
+    nom: string;
+    image: Image;
+  }[];
   membres?: {
     prenom_et_nom: string;
     annees_dexperience: string;

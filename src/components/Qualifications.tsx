@@ -71,6 +71,48 @@ const Qualifications: FC<PageProps> = ({ page }) => {
           </div>
         </div>
       </section>
+      <section className="references">
+        <div className="container">
+          {page.acf.titre_references && (
+            <h2
+              dangerouslySetInnerHTML={{ __html: page.acf.titre_references }}
+            ></h2>
+          )}
+          {page.acf.texte_references && (
+            <div
+              className="reference-text"
+              dangerouslySetInnerHTML={{ __html: page.acf.texte_references }}
+            ></div>
+          )}
+          {page.acf.references && (
+            <ul className="qualifications">
+              {page.acf.references.map((reference, index: number) => (
+                <li key={index}>
+                  <img src={reference.image.url} alt={reference.image.alt} />
+                  <div className="content">
+                    <h3
+                      dangerouslySetInnerHTML={{ __html: reference.nom }}
+                    ></h3>
+                    <p
+                      dangerouslySetInnerHTML={{ __html: reference.descriptif }}
+                    ></p>
+                  </div>
+                </li>
+              ))}
+              {page.acf.lien_vers_une_page && (
+                <li className="liens-page">
+                  <a
+                    href={page.acf.lien_vers_une_page.url}
+                    target={page.acf.lien_vers_une_page.target}
+                  >
+                    {page.acf.lien_vers_une_page.title}
+                  </a>
+                </li>
+              )}
+            </ul>
+          )}
+        </div>
+      </section>
     </article>
   );
 };
