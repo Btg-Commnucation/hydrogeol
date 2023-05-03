@@ -28,6 +28,7 @@ export type PageType = {
   acf: AcfType;
   template: string;
   slug: string;
+  permalink: string;
 };
 
 const Page = () => {

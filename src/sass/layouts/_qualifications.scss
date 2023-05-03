@@ -141,7 +141,7 @@
       margin-bottom: 3em;
 
       @include var.breakpoint(wide) {
-        max-width: 1000px;
+        max-width: 1100px;
         display: block;
         justify-self: start;
       }
