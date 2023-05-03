@@ -20,7 +20,7 @@ export type AcfType = {
   lien_vers_une_page?: Link;
   texte_reference?: string;
   texte_fond_blue?: string;
-  membre?: {
+  membres?: {
     prenom_et_nom: string;
     annees_dexperience: string;
     description: string;
