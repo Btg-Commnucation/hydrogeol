@@ -10,6 +10,18 @@ export type Link = {
   target: string;
 };
 
+export type AcfAccueilType = {
+  titre_premiere_partie: string;
+  liste_premiere_partie: { termes: string }[];
+  lien_premiere_partie: Link;
+  second_lien_premiere_partie: Link;
+  titre_seconde_partie: string;
+  image_seconde_partie: Image;
+  texte_seconde_partie: string;
+  premier_lien_seconde_partie: Link;
+  second_lien_seconde_partie: Link;
+};
+
 export type AcfType = {
   contenu_premier_paragraphe?: string;
   image_premier_paragraphe?: Image;

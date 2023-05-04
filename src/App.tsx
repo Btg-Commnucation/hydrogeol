@@ -6,14 +6,28 @@ import { PageType, RootState } from "./components/Page";
 import ky from "ky";
 import { setPage } from "./feature/page.slice";
 import Loading from "./components/Loading";
+import { AcfAccueilType } from "./assets/type";
+
+type AccueilType = {
+  title: string;
+  content: string;
+  acf: AcfAccueilType;
+  template: string;
+  slug: string;
+  permalink: string;
+};
 
 const App = () => {
   const dispatch = useDispatch();
-  const [data, setData] = useState<PageType>();
-  const { page }: { page: PageType[] } = useSelector(
+  const [data, setData] = useState<AccueilType>();
+  const { page }: { page: AccueilType[] | PageType[] } = useSelector(
     (state: RootState) => state.page
   );
   const [isLoading, setIsLoading] = useState(true);
+
+  const isAccueilType = (item: AccueilType | PageType): item is AccueilType => {
+    return "acf" in item && "titre_premiere_partie" in item.acf;
+  };
 
   // eslint-disable-next-line no-async-promise-executor
   const getPage = new Promise(async (resolve, reject) => {
@@ -27,11 +41,15 @@ const App = () => {
     }
   });
 
-  const handlePage = (payload: PageType[]) => {
+  const handlePage = (payload: AccueilType[] | PageType[]) => {
     payload.map((item) => {
       console.log(item.permalink);
       if (item.permalink === "https://admin.hydrogeol.com/") {
-        setData(item);
+        if (isAccueilType(item)) {
+          setData(item);
+        } else {
+          console.error("Item is not of type AccueilType");
+        }
         setIsLoading(false);
       }
     });
@@ -51,10 +69,78 @@ const App = () => {
     <>
       <Header />
       {!isLoading ? (
-        <section className="hero-banner">
-          <div className="left"></div>
-          <div className="right"></div>
-        </section>
+        <>
+          <section className="hero-banner__front">
+            <div className="left">
+              <div className="title">
+                <img
+                  src="/hydrogeol-logo.svg"
+                  alt="Logo d'hydrogéolgue conseil. Une goutte"
+                />
+                <h1>
+                  <span
+                    className="initial"
+                    dangerouslySetInnerHTML={{ __html: data!.title }}
+                  ></span>
+                  <span
+                    dangerouslySetInnerHTML={{ __html: data!.title }}
+                  ></span>
+                </h1>
+              </div>
+              <div className="eco">
+                <strong>Ce site est éco-conçu</strong>
+                <a href="https://www.ecoindex.fr" target="_blank">
+                  ecoindex.fr
+                </a>
+              </div>
+              <img
+                src="/full-orange-arrow.svg"
+                alt="Flèche orange pointant vers le bas"
+                className="arrow"
+              />
+            </div>
+            <div
+              className="right"
+              dangerouslySetInnerHTML={{ __html: data!.content }}
+            ></div>
+          </section>
+          <section className="first-content__accueil">
+            <div className="container">
+              <h2
+                dangerouslySetInnerHTML={{
+                  __html: data!.acf.titre_premiere_partie,
+                }}
+              ></h2>
+              <div className="content">
+                <ul className="list-premiere-partie">
+                  {data!.acf.liste_premiere_partie.map(
+                    (item, index: number) => (
+                      <li key={index}>{item.termes}</li>
+                    )
+                  )}
+                </ul>
+                <ul className="list-lien">
+                  <li>
+                    <a
+                      href={data!.acf.lien_premiere_partie.url}
+                      target={data!.acf.lien_premiere_partie.target}
+                    >
+                      {data!.acf.lien_premiere_partie.title}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={data!.acf.second_lien_premiere_partie.url}
+                      target={data!.acf.second_lien_premiere_partie.target}
+                    >
+                      {data!.acf.second_lien_premiere_partie.title}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </>
       ) : (
         <Loading />
       )}
