@@ -140,6 +140,44 @@ const App = () => {
               </div>
             </div>
           </section>
+          <section className="second-part__accueil">
+            <div className="container">
+              <h2
+                dangerouslySetInnerHTML={{
+                  __html: data!.acf.titre_seconde_partie,
+                }}
+              ></h2>
+              <img
+                src={data!.acf.image_seconde_partie.url}
+                alt={data!.acf.image_seconde_partie.alt}
+              />
+              <div className="right__container">
+                <article
+                  dangerouslySetInnerHTML={{
+                    __html: data!.acf.texte_seconde_partie,
+                  }}
+                ></article>
+                <ul className="list-container">
+                  <li>
+                    <a
+                      href={data!.acf.premier_lien_seconde_partie.url}
+                      target={data!.acf.premier_lien_seconde_partie.target}
+                    >
+                      {data!.acf.premier_lien_seconde_partie.title}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={data!.acf.second_lien_seconde_partie.url}
+                      target={data!.acf.second_lien_seconde_partie.target}
+                    >
+                      {data!.acf.second_lien_seconde_partie.title}
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
         </>
       ) : (
         <Loading />

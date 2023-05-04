@@ -278,3 +278,120 @@
     }
   }
 }
+
+.second-part__accueil {
+  margin-top: 6.8rem;
+
+  .container {
+    max-width: 98%;
+    margin-inline: auto;
+
+    @include var.breakpoint(desktop) {
+      @include var.grid(2, 1, 2em, start, center);
+    }
+
+    @include var.breakpoint(1400) {
+      row-gap: 2em;
+      column-gap: 1em;
+    }
+  }
+
+  h2 {
+    margin-block: 2.8rem 0;
+    @include var.text(60, 700, black, initial, auto, true, 30, 320, 1920);
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      height: 7px;
+      width: 50%;
+      background: black;
+      position: absolute;
+      left: 0;
+      bottom: -0.3em;
+      border-radius: 10px;
+    }
+
+    @include var.breakpoint(desktop) {
+      grid-column: 1/ 3;
+    }
+
+    @include var.breakpoint(wide) {
+      max-width: 15em;
+    }
+  }
+
+  img {
+    margin-bottom: 2em;
+
+    @include var.breakpoint(wide) {
+      max-width: 90%;
+      margin-inline: auto;
+    }
+
+    @include var.breakpoint(1400px) {
+      justify-self: end;
+      margin-inline: 0;
+    }
+  }
+
+  .right__container {
+    @include var.flex(center, center, 1em, column);
+
+    @include var.breakpoint(wide) {
+      max-width: 90%;
+      margin-inline: auto;
+    }
+
+    @include var.breakpoint(1400px) {
+      justify-self: start;
+      margin-inline: 0;
+      max-width: 80%;
+    }
+  }
+
+  article {
+    @include var.text(23, 400, black, initial, auto, true, 18, 320, 1920);
+  }
+
+  .list-container {
+    width: 100%;
+    @include var.flex(center, center, 1em, column);
+    margin-top: 2em;
+
+    @include var.breakpoint(tablet) {
+      flex-direction: row;
+    }
+
+    @include var.breakpoint(desktop) {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    li {
+      border: 1px solid var.$primaryColor;
+      padding: 3rem 2.5rem;
+      position: relative;
+
+      &::before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background: var.$primaryColor;
+        position: absolute;
+        left: -0.5em;
+        top: 0;
+        bottom: 0;
+        margin-block: auto;
+        border-radius: 50%;
+      }
+    }
+
+    a {
+      @include var.text(40, 700, black, initial, auto, true, 25, 320, 1920);
+      text-decoration: none;
+      color: var.$primaryColor;
+    }
+  }
+}
