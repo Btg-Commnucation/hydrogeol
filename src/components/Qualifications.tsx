@@ -9,7 +9,8 @@ const Qualifications: FC<PageProps> = ({ page }) => {
       const path = parsedUrl.pathname;
 
       // Supprimer le '/' initial et final s'il existe
-      return path.replace(/^\/|\/$/g, "");
+      const pathName = path.replace(/^\/|\/$/g, "");
+      return `/${pathName}`;
     } catch (error) {
       console.error("URL invalide:", url);
       return "";
