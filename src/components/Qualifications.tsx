@@ -1,7 +1,21 @@
 import { FC } from "react";
 import { PageProps } from "./Page";
+import { Link } from "react-router-dom";
 
 const Qualifications: FC<PageProps> = ({ page }) => {
+  const extractPathFromUrl = (url: string): string => {
+    try {
+      const parsedUrl = new URL(url);
+      const path = parsedUrl.pathname;
+
+      // Supprimer le '/' initial et final s'il existe
+      return path.replace(/^\/|\/$/g, "");
+    } catch (error) {
+      console.error("URL invalide:", url);
+      return "";
+    }
+  };
+
   return (
     <article className="qualifications">
       <section className="hero-banner">
@@ -101,12 +115,11 @@ const Qualifications: FC<PageProps> = ({ page }) => {
               ))}
               {page.acf.lien_vers_une_page && (
                 <li className="liens-page">
-                  <a
-                    href={page.acf.lien_vers_une_page.url}
-                    target={page.acf.lien_vers_une_page.target}
+                  <Link
+                    to={extractPathFromUrl(page.acf.lien_vers_une_page.url)}
                   >
                     {page.acf.lien_vers_une_page.title}
-                  </a>
+                  </Link>
                 </li>
               )}
             </ul>

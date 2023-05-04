@@ -8,6 +8,7 @@ import ky from "ky";
 import { setPage } from "./feature/page.slice";
 import Loading from "./components/Loading";
 import { AcfAccueilType } from "./assets/type";
+import { Link } from "react-router-dom";
 
 type AccueilType = {
   title: string;
@@ -28,6 +29,19 @@ const App = () => {
 
   const isAccueilType = (item: AccueilType | PageType): item is AccueilType => {
     return "acf" in item && "titre_premiere_partie" in item.acf;
+  };
+
+  const extractPathFromUrl = (url: string): string => {
+    try {
+      const parsedUrl = new URL(url);
+      const path = parsedUrl.pathname;
+
+      // Supprimer le '/' initial et final s'il existe
+      return path.replace(/^\/|\/$/g, "");
+    } catch (error) {
+      console.error("URL invalide:", url);
+      return "";
+    }
   };
 
   // eslint-disable-next-line no-async-promise-executor
@@ -123,20 +137,22 @@ const App = () => {
                 </ul>
                 <ul className="list-lien">
                   <li>
-                    <a
-                      href={data!.acf.lien_premiere_partie.url}
-                      target={data!.acf.lien_premiere_partie.target}
+                    <Link
+                      to={extractPathFromUrl(
+                        data!.acf.lien_premiere_partie.url
+                      )}
                     >
                       {data!.acf.lien_premiere_partie.title}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href={data!.acf.second_lien_premiere_partie.url}
-                      target={data!.acf.second_lien_premiere_partie.target}
+                    <Link
+                      to={extractPathFromUrl(
+                        data!.acf.second_lien_premiere_partie.url
+                      )}
                     >
                       {data!.acf.second_lien_premiere_partie.title}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -161,20 +177,22 @@ const App = () => {
                 ></article>
                 <ul className="list-container">
                   <li>
-                    <a
-                      href={data!.acf.premier_lien_seconde_partie.url}
-                      target={data!.acf.premier_lien_seconde_partie.target}
+                    <Link
+                      to={extractPathFromUrl(
+                        data!.acf.premier_lien_seconde_partie.url
+                      )}
                     >
                       {data!.acf.premier_lien_seconde_partie.title}
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a
-                      href={data!.acf.second_lien_seconde_partie.url}
-                      target={data!.acf.second_lien_seconde_partie.target}
+                    <Link
+                      to={extractPathFromUrl(
+                        data!.acf.second_lien_seconde_partie.url
+                      )}
                     >
                       {data!.acf.second_lien_seconde_partie.title}
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
