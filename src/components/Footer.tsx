@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import ky from "ky";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -37,15 +38,27 @@ const Footer = () => {
     } else {
       setIsLoading(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <footer>
       {!isLoading && (
         <div className="container">
-          <img src={options.logo_blanc.url} alt={options.logo_blanc.alt} className="logo-footer" />
-          <div className="footer-text" dangerouslySetInnerHTML={{ __html: options.coordonnees }}></div>
-          <img src={options.image_decoration.url} alt={options.image_decoration.alt} className="decoration" />
+          <img
+            src={options.logo_blanc.url}
+            alt={options.logo_blanc.alt}
+            className="logo-footer"
+          />
+          <div
+            className="footer-text"
+            dangerouslySetInnerHTML={{ __html: options.coordonnees }}
+          ></div>
+          <img
+            src={options.image_decoration.url}
+            alt={options.image_decoration.alt}
+            className="decoration"
+          />
         </div>
       )}
     </footer>

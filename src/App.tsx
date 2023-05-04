@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { useDispatch, useSelector } from "react-redux";
@@ -63,6 +64,7 @@ const App = () => {
     } else {
       handlePage(page);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

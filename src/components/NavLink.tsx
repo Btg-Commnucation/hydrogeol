@@ -12,13 +12,13 @@ interface RootState {
 }
 
 const NavLink = () => {
-  const { slug } = useParams()
+  const { slug } = useParams();
   const dispatch = useDispatch();
   const { menu }: { menu: Response[] } = useSelector(
     (state: RootState) => state.menu
   );
   const [isLoading, setIsLoading] = useState(true);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth] = useState(window.innerWidth);
   const menuRef = useRef<HTMLUListElement>(null);
 
   // eslint-disable-next-line no-async-promise-executor
@@ -44,48 +44,52 @@ const NavLink = () => {
     } else {
       setIsLoading(false);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleBurger = () => {
-      menuRef?.current?.classList.toggle('active');
-  }
+    menuRef?.current?.classList.toggle("active");
+  };
 
   return (
     <>
       {!isLoading ? (
         <nav className="menu">
-          { windowWidth < 1000 && (
+          {windowWidth < 1000 && (
             <div className="burger-menu" onClick={handleBurger}>
               <span className="burger"></span>
               <span className="burger"></span>
               <span className="burger"></span>
             </div>
-          ) }
+          )}
           <ul ref={menuRef} className="menu-container">
-            {menu.map(
-              (item: { ID: number; title: string; slug: string }) => (
-                <li key={item.ID}>
-                  <Link to={`/${item.slug}`} className={ slug === item.slug ? 'active' : '' }>{item.title}</Link>
-                </li>
-              )
-            )}
+            {menu.map((item: { ID: number; title: string; slug: string }) => (
+              <li key={item.ID}>
+                <Link
+                  to={`/${item.slug}`}
+                  className={slug === item.slug ? "active" : ""}
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
       ) : (
         <nav className="menu">
-          { windowWidth < 1000 && (
+          {windowWidth < 1000 && (
             <div className="burger-menu" onClick={handleBurger}>
               <span className="burger"></span>
               <span className="burger"></span>
               <span className="burger"></span>
             </div>
-          ) }
+          )}
           <ul ref={menuRef} className="menu-container">
-            { Array.from({ length: 3 }).map((_, index) => (
+            {Array.from({ length: 3 }).map((_, index) => (
               <li key={index}>
                 <a href="#">Chargement</a>
               </li>
-            )) }
+            ))}
           </ul>
         </nav>
       )}

@@ -1,11 +1,9 @@
-import React from 'react';
-
 const ErrorPage = () => {
-    return (
-        <div>
-            <h1>404</h1>
-        </div>
-    );
+  return (
+    <div>
+      <h1>404</h1>
+    </div>
+  );
 };
 
 // Image d'un puits asséché avec le texte : "Oups ! On dirait que cette page est aussi introuvable qu'une source d'eau dans ce puits. Retournez à l'accueil pour continuer à explorer notre site."
