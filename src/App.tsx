@@ -70,6 +70,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    document.title = `Hydrogéologue Conseil`;
     if (Object.keys(page).length === 0 && page.constructor === Object) {
       getPage
         .then((response) => dispatch(setPage(response)))
