@@ -72,6 +72,15 @@ const Page = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
+  useEffect(() => {
+    if (data) {
+      const decodeTitle = decodeURIComponent(data.title)
+        .replace("&#038;", "&")
+        .replace("&rsquo;", "'");
+      document.title = `${decodeTitle} - Hydrogéologue`;
+    }
+  }, [data]);
+
   return (
     <>
       <ScrollRestoration />
