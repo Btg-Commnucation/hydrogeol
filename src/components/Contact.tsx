@@ -7,7 +7,7 @@ const Contact: FC<PageProps> = ({ page }) => {
       <div className="container">
         <section className="hero-banner">
           <h1>
-            {page.title}
+            <span className="initial">{page.title}</span>
             <span>{page.title}</span>
           </h1>
           <img

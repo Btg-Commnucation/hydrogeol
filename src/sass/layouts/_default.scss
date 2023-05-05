@@ -8,6 +8,10 @@
       max-width: 98%;
       margin: 10rem auto 0 auto;
 
+      @include var.breakpoint(tablet) {
+        max-width: 85%;
+      }
+
       .left {
         margin-bottom: 2rem;
         position: relative;
@@ -15,6 +19,14 @@
 
       .arrow-full {
         margin: auto;
+
+        @include var.breakpoint(tablet) {
+          position: absolute;
+          width: 54.69px;
+          height: 54.69px;
+          right: 0;
+          bottom: 0.8em;
+        }
       }
 
       @include var.breakpoint(wide) {
@@ -39,6 +51,16 @@
           margin-bottom: 0;
           margin-top: 5em;
           margin-left: 2rem;
+        }
+      }
+
+      .right {
+        @include var.breakpoint(tablet) {
+          display: none;
+        }
+
+        @include var.breakpoint(wide) {
+          display: flex;
         }
       }
 
@@ -69,13 +91,18 @@
           1920
         );
         position: relative;
+        .initial {
+          position: relative;
+          z-index: 1;
+        }
 
         span:not(.initial) {
           position: absolute;
           color: transparent;
           -webkit-text-stroke: 1px black;
           top: 0.5%;
-          left: 1%;
+          left: 0.4%;
+          z-index: 0;
         }
       }
 
@@ -132,6 +159,10 @@
       max-width: 98%;
       margin: 0 auto;
 
+      @include var.breakpoint(tablet) {
+        max-width: 90%;
+      }
+
       @include var.breakpoint(wide) {
         gap: 4em;
       }
@@ -145,7 +176,7 @@
 
       &::after {
         content: "";
-        width: 65%;
+        width: 50%;
         background: black;
         height: 7px;
         position: absolute;
@@ -158,11 +189,11 @@
     .goutte {
       display: none;
 
-      @include var.breakpoint(desktop) {
+      @include var.breakpoint(tablet) {
         display: block;
         position: absolute;
         bottom: -1em;
-        left: -18em;
+        left: -12em;
       }
 
       @include var.breakpoint(wide) {
@@ -201,7 +232,7 @@
       }
 
       @include var.breakpoint(tablet) {
-        margin-left: 5em;
+        margin-left: 11em;
       }
 
       @include var.breakpoint(desktop) {
@@ -224,7 +255,7 @@
       @include var.flex(center, center, 0, column);
 
       @include var.breakpoint(550px) {
-        max-width: 75%;
+        max-width: 90%;
       }
     }
 
@@ -236,7 +267,7 @@
 
       &::after {
         content: "";
-        width: 65%;
+        width: 50%;
         background: black;
         height: 7px;
         position: absolute;
@@ -279,13 +310,13 @@
 
       h4 {
         @include var.text(
-          63,
+          55,
           700,
           var.$primaryColor,
           initial,
           auto,
           true,
-          40,
+          30,
           320,
           1920
         );

@@ -20,6 +20,7 @@
     position: relative;
     max-width: 98%;
     margin-inline: auto;
+    z-index: 10;
 
     @include var.breakpoint(1400px) {
       max-width: 95%;
@@ -46,13 +47,13 @@
 
     h1 {
       @include var.text(
-        100,
+        116,
         700,
         var.$primaryColor,
         initial,
         auto,
         true,
-        30,
+        60,
         320,
         1920
       );
@@ -66,6 +67,7 @@
         -webkit-text-stroke: 1px black;
         top: 0.5%;
         left: 0.5%;
+        z-index: -1;
 
         @include var.breakpoint(1133px) {
           left: -0.5%;
@@ -106,11 +108,23 @@
         color: var.$primaryColor;
       }
     }
+
+    @include var.breakpoint(1400px) {
+      margin-left: 1em;
+    }
+
+    @include var.breakpoint(1600px) {
+      margin-left: 1.5em;
+    }
   }
 
   .arrow {
     position: absolute;
     right: 1em;
+
+    @include var.breakpoint(tablet) {
+      bottom: -7em;
+    }
 
     @include var.breakpoint(1400px) {
       bottom: 5em;
@@ -118,9 +132,31 @@
   }
 
   .right {
-    background: var.$primaryColor;
     color: white;
-    padding-bottom: 7rem;
+    position: relative;
+
+    &__content {
+      @include var.flex(center, start, 0, column);
+      padding-bottom: 7rem;
+    }
+
+    .blue-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      margin: auto;
+      background: var.$primaryColor;
+      z-index: -1;
+
+      @include var.breakpoint(tablet) {
+        height: 87%;
+      }
+
+      @include var.breakpoint(1400px) {
+        height: 100%;
+      }
+    }
 
     @include var.breakpoint(1400px) {
       align-self: start;
@@ -129,6 +165,19 @@
     figure,
     figure img {
       width: 100%;
+    }
+
+    @include var.breakpoint(tablet) {
+      figure {
+        width: 57%;
+        align-self: end;
+      }
+    }
+
+    @include var.breakpoint(1400px) {
+      figure {
+        width: 100%;
+      }
     }
 
     p,
@@ -149,12 +198,20 @@
       &::after {
         content: "";
         height: 7px;
-        width: 60%;
+        width: 50%;
         background: white;
         position: absolute;
         left: 0;
         bottom: -0.3em;
         border-radius: 10px;
+      }
+
+      @include var.breakpoint(tablet) {
+        margin-top: -2em;
+      }
+
+      @include var.breakpoint(1400px) {
+        margin-top: 2.8rem;
       }
     }
   }
@@ -221,7 +278,7 @@
     }
 
     li {
-      @include var.flex(center, center, 0.3em, column);
+      @include var.flex(center, center, 0.3em, row-reverse);
 
       @include var.breakpoint(tablet) {
         flex-direction: row-reverse;
@@ -243,7 +300,7 @@
 
     @include var.breakpoint(tablet) {
       flex-direction: row;
-      gap: 1em;
+      gap: 2em;
     }
 
     @include var.breakpoint(wide) {
@@ -286,8 +343,9 @@
     max-width: 98%;
     margin-inline: auto;
 
-    @include var.breakpoint(desktop) {
+    @include var.breakpoint(tablet) {
       @include var.grid(2, 1, 2em, start, center);
+      max-width: 95%;
     }
 
     @include var.breakpoint(1400) {
@@ -313,7 +371,7 @@
       border-radius: 10px;
     }
 
-    @include var.breakpoint(desktop) {
+    @include var.breakpoint(tablet) {
       grid-column: 1/ 3;
     }
 
@@ -361,11 +419,6 @@
     margin-top: 2em;
 
     @include var.breakpoint(tablet) {
-      flex-direction: row;
-    }
-
-    @include var.breakpoint(desktop) {
-      flex-direction: column;
       align-items: start;
     }
 

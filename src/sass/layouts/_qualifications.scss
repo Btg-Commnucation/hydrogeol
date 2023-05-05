@@ -6,7 +6,6 @@
   }
 
   .container {
-    max-width: 98%;
     margin-inline: auto;
     margin-top: 6em;
 
@@ -25,6 +24,7 @@
   .left {
     @include var.flex(center, start, 1em, column);
     margin-bottom: 2em;
+    position: relative;
 
     @include var.breakpoint(wide) {
       margin-left: 2em;
@@ -32,6 +32,22 @@
 
     .full-arrow {
       align-self: center;
+
+      @include var.breakpoint(tablet) {
+        position: absolute;
+        width: 34.69px;
+        height: 34.69px;
+        right: 0;
+        bottom: 2em;
+      }
+
+      @include var.breakpoint(desktop) {
+        position: initial;
+        width: auto;
+        height: auto;
+        bottom: unset;
+        right: unset;
+      }
     }
   }
 
@@ -49,12 +65,26 @@
     );
     position: relative;
 
+    .initial {
+      position: relative;
+      z-index: 1;
+    }
+
     span:not(.initial) {
       position: absolute;
       color: transparent;
       -webkit-text-stroke: 1px black;
       top: 0.5%;
       left: 0.5%;
+      z-index: 0;
+
+      @include var.breakpoint(desktop) {
+        max-width: 90%;
+      }
+    }
+
+    @include var.breakpoint(tablet) {
+      max-width: 70%;
     }
   }
 
@@ -63,6 +93,15 @@
     list-style: none;
     @include var.text(23, 400, black, initial, auto, true, 18, 320, 1920);
     margin-left: 2em;
+
+    @include var.breakpoint(tablet) {
+      margin-left: 0;
+      max-width: 90%;
+    }
+
+    @include var.breakpoint(desktop) {
+      max-width: 100%;
+    }
 
     li {
       position: relative;
@@ -105,6 +144,10 @@
     @include var.text(23, 400, white, initial, auto, true, 18, 320, 1920);
     @include var.flex(center, center, 2em, column);
 
+    @include var.breakpoint(tablet) {
+      padding-inline: 4em;
+    }
+
     @include var.breakpoint(desktop) {
       height: 100%;
     }
@@ -115,6 +158,20 @@
       @include var.breakpoint(tablet) {
         flex-direction: row;
       }
+    }
+
+    .bordered-content {
+      border: 2px solid white;
+      padding: 3.6rem 5.2rem;
+    }
+  }
+
+  .left {
+    max-width: 98%;
+    margin: 0 auto;
+
+    @include var.breakpoint(tablet) {
+      max-width: 85%;
     }
   }
 
@@ -136,9 +193,21 @@
     }
 
     h2 {
-      @include var.text(63, 700, black, initial, auto, true, 35, 320, 1920);
+      @include var.text(63, 700, black, initial, auto, true, 30, 320, 1920);
       margin-bottom: 1em;
       margin-bottom: 3em;
+      position: relative;
+
+      &::after {
+        content: "";
+        height: 7px;
+        width: 50%;
+        background: black;
+        position: absolute;
+        left: 0;
+        bottom: -0.3em;
+        border-radius: 10px;
+      }
 
       @include var.breakpoint(wide) {
         max-width: 1100px;
@@ -156,12 +225,20 @@
       background: var.$primaryColor;
       position: absolute;
       width: 100%;
-      height: 90%;
+      height: 80%;
       bottom: 0;
       left: 0;
       right: 0;
       z-index: -1;
       margin-inline: auto;
+
+      @include var.breakpoint(617px) {
+        height: 70%;
+      }
+
+      @include var.breakpoint(desktop) {
+        height: 90%;
+      }
 
       @include var.breakpoint(1400px) {
         max-width: 90%;
@@ -170,8 +247,9 @@
 
     .team-member__container {
       @include var.flex(center, center, 1em, column);
+      width: 100%;
 
-      @include var.breakpoint(tablet) {
+      @include var.breakpoint(desktop) {
         flex-direction: row;
       }
 
@@ -185,6 +263,12 @@
         padding: 2.8rem 2rem;
         background: white;
         @include var.text(23, 400, black, initial, auto, true, 18, 320, 1920);
+        max-width: 600px;
+        margin-inline: auto;
+
+        @include var.breakpoint(1400px) {
+          max-width: 100%;
+        }
 
         h4 {
           position: relative;
@@ -233,6 +317,8 @@
   .references {
     .container {
       margin-top: 4em;
+      max-width: 98%;
+      @include var.flex(center, center, 0, column);
 
       @include var.breakpoint(desktop) {
         @include var.flex(center, center, 0, column);
@@ -283,7 +369,7 @@
       @include var.flex(center, center, 8rem, column);
 
       @include var.breakpoint(tablet) {
-        @include var.grid(2, auto, 8rem, center, center);
+        @include var.grid(2, auto, 5rem, center, center);
       }
 
       @include var.breakpoint(1400px) {

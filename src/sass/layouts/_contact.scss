@@ -1,156 +1,207 @@
-@use '../abstracts' as var;
+@use "../abstracts" as var;
 
-.contact-page{
-    background: var.$secondaryColor;
-    padding-top: 8rem;
+.contact-page {
+  background: var.$secondaryColor;
+  padding-top: 8rem;
+
+  @include var.breakpoint(var.$desktop) {
+    @include var.flex(end, center, 0);
+    padding-top: 0;
+  }
+
+  .container {
+    max-width: 98%;
+    margin: 0 auto;
+
+    @include var.breakpoint(tablet) {
+      max-width: 90%;
+    }
 
     @include var.breakpoint(var.$desktop) {
-        @include var.flex(end, center, 0);
-        padding-top: 0;
+      width: 90%;
+      margin: 0;
     }
 
-    .container {
-        max-width: 98%;
-        margin: 0 auto;
+    @include var.breakpoint(var.$wide) {
+      width: 95%;
+    }
+  }
 
-        @include var.breakpoint(var.$desktop) {
-            width: 90%;
-            margin: 0;
-        }
+  .hero-banner {
+    @include var.flex(center, center, 2.3rem, column);
 
-        @include var.breakpoint(var.$wide) {
-            width: 95%;
-        }
+    @include var.breakpoint(tablet) {
+      img {
+        display: none;
+      }
     }
 
-    .hero-banner {
-        @include var.flex(center, center, 2.3rem, column);
-        
-        @include var.breakpoint(var.$desktop){
-            display: grid;
-            grid-template-columns: 0.5fr 1fr;
-            gap: 5%;
-            justify-items: start;
-            align-items: center;
-            
-            min-height: 300px;
+    @include var.breakpoint(var.$desktop) {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr;
+      gap: 5%;
+      justify-items: start;
+      align-items: center;
 
-            img {
-                width: 100%;
-                height: 80%;
-                min-height: 300px;
-                justify-self: end;
-                align-self: start;
-            }
-        }
+      min-height: 300px;
 
-        @include var.breakpoint(var.$wide) {
-            min-height: 450px;
-        }
-    }
-
-    h1 {
-        @include var.text(116, 700, var.$primaryColor, initial, auto, true, 60, 320, 1920);
-        position: relative;
-        width: min-content;
-        white-space: pre-wrap;
-
-        span {
-            position: absolute;
-            color: transparent;
-            -webkit-text-stroke: 1px black;
-            top: 0.5%;
-            left: 1%;
-        }
-
-        @include var.breakpoint(desktop) {
-            align-self: end;
-        }
-    }
-
-    .content {
-        @include var.flex(center, center, 3rem, column);
-        margin-block: 3rem 3rem;
-
-        @include var.breakpoint(var.$desktop) {
-            display: grid;
-            grid-template-columns: 0.7fr 1fr;
-            gap: 2rem;
-            justify-items: center;
-            align-items: center;
-        }
-    }
-
-    .coordonnees {
-        border: 1px solid var.$primaryColor;
-        padding: calc(20px + (82 - 20) * ((100vw - 320px) / (1920 - 320))) calc(10px + (52 - 20) * ((100vw - 320px) / (1920 - 320)));
-        @include var.text(23, 400, var.$primaryColor, none, auto, true, 16, 320, 1920);
-
-        @include var.breakpoint(var.$desktop) {
-            width: fit-content;
-            justify-self: start;
-        }
-
-
-        ul {
-            list-style-type: none;
-        }
-
-        a {
-            color: var.$primaryColor;
-            text-decoration: none;
-        }
-    }
-
-    .offres {
-        @include var.flex(center, start, 0, column);
+      img {
+        display: block;
         width: 100%;
-
-        h2 {
-            @include var.text(63, 700, black, initial, auto, true, 35, 320, 1920);
-            display: flow-root;
-            width: fit-content;
-
-            &::after {
-                content: "";
-                background: black;
-                width: 75%;
-                height: 7px;
-                margin-top: 2.2rem;
-                display: flow-root;
-                border-radius: 10px;
-            }
-        }
-
-        p {
-            margin-top: 6.1rem;
-            @include var.text(23, 700, black, initial, auto, true, 18, 320, 1920);
-            text-align: left;
-
-            @include var.breakpoint(var.$desktop) {
-                @include var.flex(center, center, 1rem, row);
-                position: relative;
-                &::before {
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    margin-block: auto;
-                    left: -11%;
-                    content: '';
-                    background: url("/blue-arrow.svg") no-repeat center center;
-                    width: calc(20px + (34 - 20) * ((100vw - 320px) / (1920 - 320)));
-                    height: calc(20px + (34 - 20) * ((100vw - 320px) / (1920 - 320)));
-                    background-size: contain;
-                }
-            }
-        }
-
-        a {
-            text-align: left;
-            @include var.text(23, 700, black, initial, auto, true, 18, 320, 1920);
-            text-decoration: underline;
-            background: transparent;
-            border: none;
-        }
+        height: 80%;
+        min-height: 300px;
+        justify-self: end;
+        align-self: start;
+      }
     }
+
+    @include var.breakpoint(var.$wide) {
+      min-height: 450px;
+    }
+  }
+
+  h1 {
+    @include var.text(
+      116,
+      700,
+      var.$primaryColor,
+      initial,
+      auto,
+      true,
+      60,
+      320,
+      1920
+    );
+    position: relative;
+    width: min-content;
+    white-space: pre-wrap;
+
+    @include var.breakpoint(tablet) {
+      align-self: start;
+    }
+
+    .initial {
+      position: relative;
+      z-index: 1;
+    }
+
+    span:not(.initial) {
+      position: absolute;
+      color: transparent;
+      -webkit-text-stroke: 1px black;
+      top: 0.5%;
+      left: 1%;
+      z-index: 0;
+    }
+
+    @include var.breakpoint(desktop) {
+      align-self: end;
+    }
+  }
+
+  .content {
+    @include var.flex(center, center, 3rem, column);
+    margin-block: 3rem 3rem;
+
+    @include var.breakpoint(var.$desktop) {
+      display: grid;
+      grid-template-columns: 0.7fr 1fr;
+      gap: 2rem;
+      justify-items: center;
+      align-items: center;
+    }
+  }
+
+  .coordonnees {
+    border: 1px solid var.$primaryColor;
+    padding: calc(20px + (82 - 20) * ((100vw - 320px) / (1920 - 320)))
+      calc(10px + (52 - 20) * ((100vw - 320px) / (1920 - 320)));
+    @include var.text(
+      23,
+      400,
+      var.$primaryColor,
+      none,
+      auto,
+      true,
+      16,
+      320,
+      1920
+    );
+
+    @include var.breakpoint(tablet) {
+      width: 60%;
+    }
+
+    @include var.breakpoint(var.$desktop) {
+      width: fit-content;
+      justify-self: start;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    a {
+      color: var.$primaryColor;
+      text-decoration: none;
+    }
+  }
+
+  .offres {
+    @include var.flex(center, start, 0, column);
+    width: 100%;
+
+    h2 {
+      @include var.text(63, 700, black, initial, auto, true, 35, 320, 1920);
+      display: flow-root;
+      width: fit-content;
+
+      &::after {
+        content: "";
+        background: black;
+        width: 50%;
+        height: 7px;
+        margin-top: 2.2rem;
+        display: flow-root;
+        border-radius: 10px;
+      }
+    }
+
+    p {
+      margin-top: 6.1rem;
+      @include var.text(23, 700, black, initial, auto, true, 18, 320, 1920);
+      text-align: left;
+
+      @include var.breakpoint(tablet) {
+        @include var.flex(center, center, 1rem, row);
+        position: relative;
+        margin-left: 2em;
+        &::before {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin-block: auto;
+          left: -11%;
+          content: "";
+          background: url("/blue-arrow.svg") no-repeat center center;
+          width: calc(20px + (34 - 20) * ((100vw - 320px) / (1920 - 320)));
+          height: calc(20px + (34 - 20) * ((100vw - 320px) / (1920 - 320)));
+          background-size: contain;
+        }
+      }
+    }
+
+    a {
+      text-align: left;
+      @include var.text(23, 700, black, initial, auto, true, 18, 320, 1920);
+      text-decoration: underline;
+      background: transparent;
+      border: none;
+    }
+  }
+  .wp-block-buttons {
+    @include var.breakpoint(tablet) {
+      margin-left: 2.3em;
+    }
+  }
 }

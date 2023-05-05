@@ -58,7 +58,6 @@ const App = () => {
 
   const handlePage = (payload: AccueilType[] | PageType[]) => {
     payload.map((item) => {
-      console.log(item.permalink);
       if (item.permalink === "https://admin.hydrogeol.com/") {
         if (isAccueilType(item)) {
           setData(item);
@@ -115,10 +114,13 @@ const App = () => {
                 className="arrow"
               />
             </div>
-            <div
-              className="right"
-              dangerouslySetInnerHTML={{ __html: data!.content }}
-            ></div>
+            <div className="right">
+              <div className="blue-bg"></div>
+              <div
+                className="right__content"
+                dangerouslySetInnerHTML={{ __html: data!.content }}
+              ></div>
+            </div>
           </section>
           <section className="first-content__accueil">
             <div className="container">
