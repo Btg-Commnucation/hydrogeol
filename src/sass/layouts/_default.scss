@@ -4,17 +4,29 @@
   .hero-banner {
     background: var.$secondaryColor;
 
+    @include var.breakpoint(1400px) {
+      height: 100vh;
+    }
+
     .container {
       max-width: 98%;
       margin: 10rem auto 0 auto;
 
       @include var.breakpoint(tablet) {
-        max-width: 85%;
+        max-width: min(85%, 1700px);
+      }
+
+      @include var.breakpoint(1400px) {
+        height: 100%;
       }
 
       .left {
         margin-bottom: 2rem;
         position: relative;
+
+        @include var.breakpoint(1400px) {
+          height: 100%;
+        }
       }
 
       .arrow-full {
@@ -26,6 +38,10 @@
           height: 54.69px;
           right: 0;
           bottom: 0.8em;
+        }
+
+        @include var.breakpoint(1400px) {
+          bottom: 12em;
         }
       }
 
@@ -61,6 +77,10 @@
 
         @include var.breakpoint(wide) {
           display: flex;
+        }
+
+        @include var.breakpoint(1400px) {
+          height: 100%;
         }
       }
 
@@ -160,7 +180,7 @@
       margin: 0 auto;
 
       @include var.breakpoint(tablet) {
-        max-width: 90%;
+        max-width: min(90%, 1700px);
       }
 
       @include var.breakpoint(wide) {
@@ -255,7 +275,7 @@
       @include var.flex(center, center, 0, column);
 
       @include var.breakpoint(550px) {
-        max-width: 90%;
+        max-width: min(90%, 1700px);
       }
     }
 

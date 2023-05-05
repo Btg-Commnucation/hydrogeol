@@ -20,12 +20,15 @@ footer {
       @include var.grid(2, auto, 1em, center, center);
     }
 
-    @include var.breakpoint(1400px) {
-      grid-template-columns: 0.5fr 0.6fr 1fr;
+    @include var.breakpoint(1200px) {
+      grid-template-columns: 0.4fr 0.6fr 1fr;
       align-items: start;
       gap: 3em;
-      max-width: 90%;
-      margin: 0;
+      max-width: 100%;
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 3em;
+      padding-left: 15em;
     }
   }
 
@@ -43,9 +46,11 @@ footer {
       right: -2.5%;
     }
 
-    @include var.breakpoint(1400px) {
+    @include var.breakpoint(1200px) {
+      width: 100%;
       grid-column: 3;
       right: 0;
+      justify-self: end;
     }
   }
 

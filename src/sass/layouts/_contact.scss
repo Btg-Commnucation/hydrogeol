@@ -23,7 +23,7 @@
     }
 
     @include var.breakpoint(var.$wide) {
-      width: 95%;
+      width: min(95%, 1700px);
     }
   }
 

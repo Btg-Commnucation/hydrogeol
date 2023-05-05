@@ -228,7 +228,7 @@
     }
 
     @include var.breakpoint(wide) {
-      max-width: 95%;
+      max-width: min(95%, 1700px);
     }
   }
 
@@ -345,7 +345,7 @@
 
     @include var.breakpoint(tablet) {
       @include var.grid(2, 1, 2em, start, center);
-      max-width: 95%;
+      max-width: min(95%, 1700px);
     }
 
     @include var.breakpoint(1400) {

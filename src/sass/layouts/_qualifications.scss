@@ -3,6 +3,10 @@
 .qualifications {
   .hero-banner {
     background: var.$secondaryColor;
+
+    @include var.breakpoint(1400px) {
+      height: 100vh;
+    }
   }
 
   .container {
@@ -19,6 +23,10 @@
       width: 100%;
       max-width: 100%;
     }
+
+    @include var.breakpoint(1400px) {
+      height: 100%;
+    }
   }
 
   .left {
@@ -28,6 +36,10 @@
 
     @include var.breakpoint(wide) {
       margin-left: 2em;
+    }
+
+    @include var.breakpoint(1400px) {
+      height: 100%;
     }
 
     .full-arrow {
@@ -41,12 +53,10 @@
         bottom: 2em;
       }
 
-      @include var.breakpoint(desktop) {
-        position: initial;
-        width: auto;
-        height: auto;
-        bottom: unset;
-        right: unset;
+      @include var.breakpoint(1400px) {
+        bottom: 5em;
+        width: 54.69px;
+        height: 54.69px;
       }
     }
   }
@@ -152,6 +162,11 @@
       height: 100%;
     }
 
+    @include var.breakpoint(1400px) {
+      height: 100%;
+      padding: 0 2em;
+    }
+
     .wp-block-columns {
       @include var.flex(center, center, 2em, column);
 
@@ -188,7 +203,7 @@
       }
 
       @include var.breakpoint(wide) {
-        max-width: 93%;
+        max-width: min(93%, 1700px);
       }
     }
 
@@ -303,7 +318,7 @@
     }
 
     @include var.breakpoint(1400px) {
-      max-width: 90%;
+      max-width: min(90%, 1700px);
       margin-inline: auto;
     }
   }
@@ -326,7 +341,7 @@
       }
 
       @include var.breakpoint(1400px) {
-        max-width: 75%;
+        max-width: min(75%, 1700px);
       }
     }
 
