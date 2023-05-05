@@ -88,16 +88,6 @@
         gap: 4em;
       }
 
-      @include var.breakpoint(1600px) {
-        .arrow-full {
-          position: absolute;
-          width: 49px;
-          height: 82.5px;
-          right: 2em;
-          bottom: 1.7em;
-        }
-      }
-
       h1 {
         @include var.text(
           116,

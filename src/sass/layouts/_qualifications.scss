@@ -63,7 +63,7 @@
 
   h1 {
     @include var.text(
-      116,
+      106,
       700,
       var.$primaryColor,
       initial,
@@ -111,6 +111,10 @@
 
     @include var.breakpoint(desktop) {
       max-width: 100%;
+    }
+
+    @include var.breakpoint(1400px) {
+      max-width: 80%;
     }
 
     li {

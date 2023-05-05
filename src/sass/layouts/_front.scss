@@ -10,6 +10,7 @@
     justify-items: center;
     align-items: center;
     margin-top: 0;
+    height: 100vh;
   }
 
   @include var.breakpoint(1600px) {
@@ -24,6 +25,7 @@
 
     @include var.breakpoint(1400px) {
       max-width: 95%;
+      height: 100%;
     }
     @include var.breakpoint(1600px) {
       max-width: 90%;
@@ -135,9 +137,17 @@
     color: white;
     position: relative;
 
+    @include var.breakpoint(1400px) {
+      height: 100%;
+    }
+
     &__content {
       @include var.flex(center, start, 0, column);
       padding-bottom: 7rem;
+
+      @include var.breakpoint(1400px) {
+        height: 100%;
+      }
     }
 
     .blue-bg {
