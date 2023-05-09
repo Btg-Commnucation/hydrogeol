@@ -102,13 +102,14 @@ const App = () => {
                     dangerouslySetInnerHTML={{ __html: data!.title }}
                   ></span>
                 </h1>
+                <div className="eco">
+                  <strong>Ce site est éco-conçu</strong>
+                  <a href="https://www.ecoindex.fr" target="_blank">
+                    ecoindex.fr
+                  </a>
+                </div>
               </div>
-              <div className="eco">
-                <strong>Ce site est éco-conçu</strong>
-                <a href="https://www.ecoindex.fr" target="_blank">
-                  ecoindex.fr
-                </a>
-              </div>
+
               <img
                 src="/full-orange-arrow.svg"
                 alt="Flèche orange pointant vers le bas"

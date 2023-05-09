@@ -54,11 +54,13 @@ const Footer = () => {
             className="footer-text"
             dangerouslySetInnerHTML={{ __html: options.coordonnees }}
           ></div>
-          <img
-            src={options.image_decoration.url}
-            alt={options.image_decoration.alt}
-            className="decoration"
-          />
+          <div className="decoration__container">
+            <img
+              src={options.image_decoration.url}
+              alt={options.image_decoration.alt}
+              className="decoration"
+            />
+          </div>
         </div>
       )}
     </footer>

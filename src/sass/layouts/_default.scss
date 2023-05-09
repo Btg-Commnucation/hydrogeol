@@ -11,13 +11,11 @@
     .container {
       max-width: 98%;
       margin: 10rem auto 0 auto;
+      background: var.$secondaryColor;
+      height: fit-content;
 
       @include var.breakpoint(tablet) {
         max-width: min(85%, 1700px);
-      }
-
-      @include var.breakpoint(1400px) {
-        height: 100%;
       }
 
       .left {

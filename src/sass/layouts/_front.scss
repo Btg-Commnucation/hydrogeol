@@ -22,6 +22,7 @@
     max-width: 98%;
     margin-inline: auto;
     z-index: 10;
+    @include var.flex(center, start, 0, column);
 
     @include var.breakpoint(1400px) {
       max-width: 95%;
@@ -41,6 +42,11 @@
 
     @include var.breakpoint(tablet) {
       gap: 1.5em;
+
+      display: grid;
+      grid-template-columns: 0.3fr 1fr;
+      justify-items: center;
+      align-items: center;
     }
 
     img {
@@ -55,13 +61,14 @@
         initial,
         auto,
         true,
-        60,
+        50,
         320,
         1920
       );
       text-transform: uppercase;
       position: relative;
       text-align: center;
+      line-height: 1;
 
       span:not(.initial) {
         position: absolute;
@@ -95,7 +102,7 @@
       height: 188px;
       border-radius: 50%;
       border: 1px solid var.$primaryColor;
-      margin-top: 7rem;
+      margin-top: 2rem;
 
       strong {
         font-size: 26px;
@@ -110,19 +117,12 @@
         color: var.$primaryColor;
       }
     }
-
-    @include var.breakpoint(1400px) {
-      margin-left: 1em;
-    }
-
-    @include var.breakpoint(1600px) {
-      margin-left: 1.5em;
-    }
   }
 
   .arrow {
     position: absolute;
     right: 1em;
+    bottom: -5em;
 
     @include var.breakpoint(tablet) {
       bottom: -7em;
@@ -142,7 +142,7 @@
     }
 
     &__content {
-      @include var.flex(center, start, 0, column);
+      @include var.flex(start, start, 0, column);
       padding-bottom: 7rem;
 
       @include var.breakpoint(1400px) {
