@@ -44,9 +44,15 @@
       gap: 1.5em;
 
       display: grid;
-      grid-template-columns: 0.3fr 1fr;
+      grid-template-columns: 0.4fr 1fr;
       justify-items: center;
       align-items: center;
+    }
+
+    @include var.breakpoint(tablet) {
+      .logo-front {
+        width: 100%;
+      }
     }
 
     img {
@@ -55,7 +61,7 @@
 
     h1 {
       @include var.text(
-        116,
+        106,
         700,
         var.$primaryColor,
         initial,
@@ -129,7 +135,7 @@
     }
 
     @include var.breakpoint(1400px) {
-      bottom: 5em;
+      bottom: 12em;
     }
   }
 
@@ -143,10 +149,14 @@
 
     &__content {
       @include var.flex(start, start, 0, column);
-      padding-bottom: 7rem;
+      padding-bottom: 5rem;
 
       @include var.breakpoint(1400px) {
         height: 100%;
+      }
+
+      p:not(:first-of-type) {
+        margin-top: 1.3em;
       }
     }
 
@@ -172,6 +182,20 @@
       align-self: start;
     }
 
+    figure {
+      max-height: 378px;
+      overflow: hidden;
+      object-fit: cover;
+      object-position: center;
+
+      img {
+        height: 100%;
+        overflow: hidden;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
     figure,
     figure img {
       width: 100%;
@@ -192,11 +216,11 @@
 
     p,
     h2 {
-      margin-inline: 1.5rem;
+      margin-inline: 3.2rem;
     }
 
     p {
-      @include var.text(23, 400, white, initial, auto, true, 20, 320, 1920);
+      @include var.text(23, 300, white, initial, auto, true, 20, 320, 1920);
     }
 
     h2 {
@@ -248,6 +272,10 @@
     position: relative;
     width: fit-content;
 
+    @include var.breakpoint(wide) {
+      margin-block: 2.8rem 0;
+    }
+
     &::after {
       content: "";
       height: 7px;
@@ -263,7 +291,7 @@
   @include var.breakpoint(wide) {
     .content {
       display: grid;
-      grid-template-columns: 1fr 0.5fr;
+      grid-template-columns: 1fr 0.7fr;
       justify-items: center;
       align-items: center;
       gap: 5em;
@@ -272,6 +300,7 @@
 
   .list-premiere-partie {
     @include var.flex(center, start, 1em, column);
+    width: 100%;
     list-style: none;
     @include var.text(23, 400, black, initial, auto, true, 18, 320, 1920);
 
@@ -315,6 +344,7 @@
 
     @include var.breakpoint(wide) {
       flex-direction: column;
+      margin-top: 0;
     }
 
     li {
@@ -337,11 +367,18 @@
     }
 
     a {
-      font-size: 25px;
-      text-align: center;
-      color: var.$primaryColor;
+      @include var.text(
+        40,
+        700,
+        var.$primaryColor,
+        initial,
+        auto,
+        true,
+        23,
+        320,
+        1920
+      );
       text-decoration: none;
-      font-weight: 700;
     }
   }
 }
@@ -424,7 +461,8 @@
   }
 
   .list-container {
-    width: 100%;
+    width: 70%;
+    align-self: end;
     @include var.flex(center, center, 1em, column);
     margin-top: 2em;
 
@@ -452,9 +490,18 @@
     }
 
     a {
-      @include var.text(40, 700, black, initial, auto, true, 25, 320, 1920);
+      @include var.text(
+        40,
+        700,
+        var.$primaryColor,
+        initial,
+        auto,
+        true,
+        23,
+        320,
+        1920
+      );
       text-decoration: none;
-      color: var.$primaryColor;
     }
   }
 }

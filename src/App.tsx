@@ -92,6 +92,7 @@ const App = () => {
                 <img
                   src="/hydrogeol-logo.svg"
                   alt="Logo d'hydrogéolgue conseil. Une goutte"
+                  className="logo-front"
                 />
                 <h1>
                   <span

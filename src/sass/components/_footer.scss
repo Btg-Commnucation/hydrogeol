@@ -47,7 +47,6 @@ footer {
       width: 100%;
       grid-column: 3;
       justify-self: end;
-      height: 330px;
     }
   }
 
@@ -59,7 +58,8 @@ footer {
     width: 100%;
 
     @include var.breakpoint(1200px) {
-      height: 113%;
+      height: 130%;
+      top: -35%;
     }
   }
 
@@ -73,7 +73,7 @@ footer {
   }
 
   .footer-text {
-    @include var.text(30, 400, black, none, 1, true, 16, 320, 1920);
+    @include var.text(23, 400, black, none, 1, true, 16, 320, 1920);
     width: 100%;
 
     ul {

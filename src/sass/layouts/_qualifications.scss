@@ -40,6 +40,7 @@
 
     @include var.breakpoint(1400px) {
       height: 100%;
+      margin-top: 3em !important;
     }
 
     .full-arrow {
@@ -55,8 +56,8 @@
 
       @include var.breakpoint(1400px) {
         bottom: 5em;
-        width: 54.69px;
-        height: 54.69px;
+        width: 48.73px;
+        height: 82.36px;
       }
     }
   }
@@ -74,6 +75,7 @@
       1920
     );
     position: relative;
+    line-height: 1.2;
 
     .initial {
       position: relative;
@@ -115,6 +117,7 @@
 
     @include var.breakpoint(1400px) {
       max-width: 80%;
+      margin-left: 3em;
     }
 
     li {
@@ -168,7 +171,7 @@
 
     @include var.breakpoint(1400px) {
       height: 100%;
-      padding: 0 2em;
+      padding: 0 4em;
     }
 
     .wp-block-columns {
@@ -176,6 +179,7 @@
 
       @include var.breakpoint(tablet) {
         flex-direction: row;
+        align-items: end;
       }
     }
 
@@ -224,7 +228,7 @@
         background: black;
         position: absolute;
         left: 0;
-        bottom: -0.3em;
+        bottom: -0.1em;
         border-radius: 10px;
       }
 
@@ -285,6 +289,10 @@
         max-width: 600px;
         margin-inline: auto;
 
+        @include var.breakpoint(desktop) {
+          padding-inline: 2.5em;
+        }
+
         @include var.breakpoint(1400px) {
           max-width: 100%;
         }
@@ -305,6 +313,10 @@
             background-size: contain;
             left: -1.8em;
             display: none;
+
+            @include var.breakpoint(desktop) {
+              display: block;
+            }
           }
         }
       }
@@ -362,11 +374,11 @@
       &::after {
         content: "";
         position: absolute;
-        width: 60%;
+        width: 50%;
         height: 7px;
         background: black;
         border-radius: 10px;
-        bottom: -0.5em;
+        bottom: -0.1em;
         left: 0;
       }
     }
@@ -413,7 +425,7 @@
 
         @include var.breakpoint(tablet) {
           position: relative;
-          top: -3em;
+          top: -4em;
           max-width: 75%;
           align-self: end;
         }
