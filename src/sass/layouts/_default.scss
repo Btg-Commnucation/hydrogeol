@@ -214,18 +214,18 @@
       }
 
       @include var.breakpoint(wide) {
-        left: -16.9em;
+        left: -13.9em;
         top: 10em;
         height: 80%;
       }
     }
 
     .content {
-      max-width: 1002px;
+      max-width: 1275px;
     }
 
     ul {
-      @include var.flex(start, start, 1.5em, column);
+      @include var.flex(start, start, 1.3em, column);
       list-style: none;
       @include var.text(23, 400, black, initial, auto, true, 18, 320, 1920);
       margin-left: 2em;

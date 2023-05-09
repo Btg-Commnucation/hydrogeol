@@ -11,7 +11,11 @@
   }
 
   @include var.breakpoint(var.$wide) {
-    @include var.grid(2, 1, 0, center, start);
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    justify-items: center;
+    align-items: start;
+    gap: 0;
     padding-block: 0;
   }
 
@@ -87,7 +91,7 @@
     position: relative;
     align-self: center;
     max-width: 640px;
-    margin-top: 9rem;
+    margin-top: 7rem;
 
     @include var.breakpoint(tablet) {
       max-width: 70%;
