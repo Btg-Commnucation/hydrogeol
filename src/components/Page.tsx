@@ -55,13 +55,12 @@ const Page = () => {
   });
 
   const handlePage = (payload: PageType[]) => {
-    payload.map((item) => {
-      if (item.slug === slug) {
-        console.log("here");
-        setData(item);
-        setIsLoading(false);
-      } else setIsError(false);
-    });
+    const item = payload.find((item) => item.slug === slug);
+
+    if (item) {
+      setData(item);
+      setIsLoading(false);
+    } else setIsError(true);
   };
 
   useEffect(() => {
