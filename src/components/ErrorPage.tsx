@@ -1,8 +1,32 @@
+import { Link } from "react-router-dom";
+import Footer from "./Footer";
+import Header from "./Header";
+
 const ErrorPage = () => {
   return (
-    <div>
-      <h1>404</h1>
-    </div>
+    <>
+      <Header />
+      <section className="error-page">
+        <div className="container">
+          <div className="logo">
+            <img
+              src="/hydrogeol-logo.svg"
+              alt="Logo d'hydrogeol en forme de goutte"
+              className="logo-img"
+            />
+            <div className="pulse"></div>
+            <div className="pulse-1"></div>
+          </div>
+          <h1>Erreur 404</h1>
+          <p>
+            Oups ! On dirait que cette page est aussi introuvable qu'une source
+            d'eau dans un puits. Retournez à <Link to="/">l'accueil</Link> pour
+            continuer à explorer notre site
+          </p>
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 };
 

@@ -11,6 +11,7 @@ import Loading from "./Loading";
 import Default from "./Default";
 import { AcfType } from "../assets/type";
 import Qualifications from "./Qualifications";
+import ErrorPage from "./ErrorPage";
 
 export interface RootState {
   page: {
@@ -39,6 +40,7 @@ const Page = () => {
     (state: RootState) => state.page
   );
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
   // eslint-disable-next-line no-async-promise-executor
   const getPage = new Promise(async (resolve, reject) => {
@@ -55,8 +57,11 @@ const Page = () => {
   const handlePage = (payload: PageType[]) => {
     payload.map((item) => {
       if (item.slug === slug) {
+        console.log("here");
         setData(item);
         setIsLoading(false);
+      } else {
+        setIsError(true);
       }
     });
   };
@@ -84,20 +89,26 @@ const Page = () => {
   return (
     <>
       <ScrollRestoration />
-      <Header />
-      {!isLoading ? (
-        <>
-          {data?.template === "template-contact" && <Contact page={data} />}
-          {data?.template === "template-valeurs" && <Valeurs page={data} />}
-          {data?.template === "default" && <Default page={data} />}
-          {data?.template === "template-qualifications" && (
-            <Qualifications page={data} />
-          )}
-        </>
+      {isError ? (
+        <ErrorPage />
       ) : (
-        <Loading />
+        <>
+          <Header />
+          {!isLoading ? (
+            <>
+              {data?.template === "template-contact" && <Contact page={data} />}
+              {data?.template === "template-valeurs" && <Valeurs page={data} />}
+              {data?.template === "default" && <Default page={data} />}
+              {data?.template === "template-qualifications" && (
+                <Qualifications page={data} />
+              )}
+            </>
+          ) : (
+            <Loading />
+          )}
+          <Footer />
+        </>
       )}
-      <Footer />
     </>
   );
 };
