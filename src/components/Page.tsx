@@ -60,9 +60,7 @@ const Page = () => {
         console.log("here");
         setData(item);
         setIsLoading(false);
-      } else {
-        setIsError(true);
-      }
+      } else setIsError(false);
     });
   };
 
