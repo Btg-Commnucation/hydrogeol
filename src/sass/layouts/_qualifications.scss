@@ -12,7 +12,11 @@
 
   .container {
     margin-inline: auto;
-    margin-top: 6em;
+    padding-top: 6em;
+
+    @include var.breakpoint(1400px) {
+      padding-top: 0;
+    }
 
     @include var.breakpoint(desktop) {
       display: grid;
@@ -35,7 +39,7 @@
   }
 
   .left {
-    @include var.flex(center, start, 1em, column);
+    @include var.flex(start, start, 1em, column);
     margin-bottom: 2em;
 
     @include var.breakpoint(wide) {
@@ -44,8 +48,7 @@
 
     @include var.breakpoint(1400px) {
       height: 100%;
-      margin-top: 0 !important;
-      padding-top: 3em !important;
+      padding-top: 11em !important;
     }
 
     .full-arrow {
