@@ -6,6 +6,10 @@
   background: var.$secondaryColor;
   height: 100vh;
 
+  h1 {
+    max-width: 300px;
+  }
+
   @include var.breakpoint(tablet) {
     padding-bottom: 0;
   }
@@ -50,40 +54,8 @@
     }
 
     @include var.breakpoint(var.$wide) {
-      margin-top: 13rem;
+      margin-top: 18.4rem;
       gap: 3.2rem;
-    }
-  }
-
-  h1 {
-    @include var.text(
-      116,
-      700,
-      var.$primaryColor,
-      initial,
-      auto,
-      true,
-      60,
-      320,
-      1920
-    );
-    position: relative;
-    width: min-content;
-    white-space: pre-wrap;
-    line-height: 1.2;
-
-    .initial {
-      position: relative;
-      z-index: 1;
-    }
-
-    span:not(.initial) {
-      position: absolute;
-      color: transparent;
-      -webkit-text-stroke: 1px black;
-      top: 0.5%;
-      left: 1%;
-      z-index: 0;
     }
   }
 
@@ -107,7 +79,7 @@
       display: none;
       position: absolute;
       top: 0;
-      left: -8%;
+      left: -2.7em;
       background: url("/orange-arrow.svg") no-repeat center center;
       width: calc(20px + (34 - 20) * ((100vw - 320px) / (1920 - 320)));
       height: calc(20px + (34 - 20) * ((100vw - 320px) / (1920 - 320)));
@@ -115,17 +87,18 @@
 
       @include var.breakpoint(var.$tablet) {
         display: block;
-        left: -5%;
+        left: -2.7em;
       }
 
       @include var.breakpoint(var.$wide) {
-        left: -8%;
+        left: -2.7em;
       }
     }
 
     p {
       @include var.text(23, 400, black, initial, auto, true, 18, 320, 1920);
       position: relative;
+      line-height: 1.3;
     }
   }
 

@@ -75,6 +75,7 @@ footer {
   .footer-text {
     @include var.text(23, 400, black, none, 1, true, 16, 320, 1920);
     width: 100%;
+    line-height: 1.2;
 
     ul {
       list-style: none;
