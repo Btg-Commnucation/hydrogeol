@@ -78,8 +78,8 @@
   }
 
   .content {
-    @include var.flex(center, center, 3rem, column);
-    margin-block: 3rem 3rem;
+    @include var.flex(center, center, 5rem, column);
+    margin-block: 4rem 3rem;
 
     @include var.breakpoint(var.$desktop) {
       display: grid;
