@@ -14,17 +14,18 @@ header {
     width: 98%;
     padding: 0 1rem;
     position: absolute;
-    top: 8px;
+    top: 5px;
     left: 1%;
-    border: 2px solid var.$primaryColor;
-    padding: 1rem 2rem;
+    border: 1px solid var.$primaryColor;
+    padding: 1rem 4rem;
     z-index: 1;
     background: white;
     min-height: 69px;
 
     @include var.breakpoint(desktop) {
-      gap: 2em;
+      gap: 1.7em;
       grid-template-columns: 0.07fr 1fr 0.07fr;
+      width: 100%;
     }
   }
 
@@ -37,6 +38,10 @@ header {
     left: -25px;
     top: -5px;
     background: white;
+
+    @include var.breakpoint(dekstop) {
+      width: 102%;
+    }
   }
 
   @include var.breakpoint(desktop) {

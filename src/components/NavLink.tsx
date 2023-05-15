@@ -37,6 +37,10 @@ const NavLink = () => {
   });
 
   useEffect(() => {
+    menuRef?.current?.classList.remove("active");
+  }, [slug]);
+
+  useEffect(() => {
     if (Object.keys(menu).length === 0 && menu.constructor === Object) {
       getMenu
         .then((response) => dispatch(setMenu(response)))
