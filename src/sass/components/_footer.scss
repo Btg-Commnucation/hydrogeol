@@ -35,7 +35,7 @@ footer {
     position: relative;
     max-width: 100%;
     width: 100%;
-    height: calc(240px + (394 - 240) * ((100vw - 320px) / (1920 - 320)));
+    height: calc(240px + (334 - 240) * ((100vw - 320px) / (1920 - 320)));
     grid-row: 1;
     margin-bottom: 0;
 
@@ -58,8 +58,8 @@ footer {
     width: 100%;
 
     @include var.breakpoint(1200px) {
-      height: 130%;
-      top: -35%;
+      height: 123%;
+      top: -30%;
     }
   }
 

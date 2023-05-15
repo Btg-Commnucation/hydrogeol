@@ -63,7 +63,7 @@
     position: relative;
     align-self: center;
     max-width: 640px;
-    margin-top: 7rem;
+    margin-top: 5rem;
 
     @include var.breakpoint(tablet) {
       max-width: 70%;
@@ -71,7 +71,7 @@
 
     @include var.breakpoint(desktop) {
       max-width: 640px;
-      margin-left: 6em;
+      margin-left: 4em;
     }
 
     &::before {

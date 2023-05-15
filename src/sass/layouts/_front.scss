@@ -2,8 +2,18 @@
 
 .hero-banner__front {
   position: relative;
+
   h1 {
     text-transform: uppercase;
+    max-width: 300px;
+
+    @include var.breakpoint(600px) {
+      max-width: 620px;
+    }
+
+    span {
+      white-space: break-spaces;
+    }
   }
 
   @include var.flex(center, center, 2em, column);
@@ -50,15 +60,17 @@
       gap: 1.5em;
 
       display: grid;
-      grid-template-columns: 0.4fr 1fr;
+      grid-template-columns: 0.4fr 1fr 0.2fr;
       justify-items: center;
       align-items: center;
-    }
 
-    @include var.breakpoint(tablet) {
       .logo-front {
         width: 100%;
       }
+    }
+
+    @include var.breakpoint(1400px) {
+      grid-template-columns: 0.4fr 1fr;
     }
 
     img {
@@ -289,7 +301,7 @@
 
   .list-lien {
     margin-top: 5.2rem;
-    @include var.flex(center, center, 0.5em, column);
+    @include var.flex(center, start, 0.5em, column);
 
     @include var.breakpoint(tablet) {
       flex-direction: row;
@@ -338,7 +350,7 @@
 }
 
 .second-part__accueil {
-  margin-top: 6.8rem;
+  margin-top: 4.8rem;
 
   .container {
     max-width: 98%;
@@ -378,6 +390,7 @@
     @include var.breakpoint(1400px) {
       justify-self: end;
       margin-inline: 0;
+      margin-top: -5em;
     }
   }
 
@@ -393,6 +406,7 @@
       justify-self: start;
       margin-inline: 0;
       max-width: 80%;
+      margin-top: -2em;
     }
   }
 

@@ -5,7 +5,7 @@
     background: var.$secondaryColor;
     position: relative;
 
-    @include var.breakpoint(1400px) {
+    @include var.breakpoint(wide) {
       height: 100vh;
     }
 
@@ -19,10 +19,14 @@
         max-width: min(85%, 1700px);
       }
 
+      @include var.breakpoint(wide) {
+        height: 100vh;
+      }
+
       .left {
         margin-bottom: 2rem;
 
-        @include var.breakpoint(1400px) {
+        @include var.breakpoint(wide) {
           height: 100%;
         }
       }
@@ -33,12 +37,13 @@
 
         @include var.breakpoint(tablet) {
           display: block;
-          bottom: 60%;
+          bottom: -5%;
           right: 10%;
         }
+
         @include var.breakpoint(wide) {
-          right: 13%;
-          bottom: 55%;
+          right: 48%;
+          bottom: 18%;
         }
 
         @include var.breakpoint(1400px) {
@@ -52,7 +57,7 @@
         grid-template-columns: 1fr 0.75fr;
         justify-items: center;
         align-items: start;
-        margin: 0 auto 2rem auto;
+        margin: 0 auto;
         width: 100%;
         max-width: 100%;
         gap: 0;
@@ -68,12 +73,13 @@
 
         .left {
           margin-bottom: 0;
-          margin-top: 11em;
+          padding-top: 11em;
           margin-left: 8rem;
         }
       }
 
       .right {
+        max-height: 100vh;
         @include var.breakpoint(tablet) {
           display: none;
         }
@@ -82,7 +88,7 @@
           display: flex;
         }
 
-        @include var.breakpoint(1400px) {
+        @include var.breakpoint(wide) {
           height: 100%;
         }
       }
@@ -143,7 +149,7 @@
   }
 
   .prestations {
-    margin-top: calc(23px + (122 - 23) * ((100vw - 320px) / (1920 - 320)));
+    margin-top: 12rem;
     position: relative;
     width: 100%;
     background: white;
