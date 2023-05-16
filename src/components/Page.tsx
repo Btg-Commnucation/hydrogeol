@@ -76,6 +76,15 @@ const Page = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
+  useEffect(() => {
+    if (data) {
+      const decodeTitle = decodeURIComponent(data.title)
+        .replace("&#038;", "&")
+        .replace("&rsquo;", "'");
+      document.title = `${decodeTitle} - Hydrogéologue`;
+    }
+  }, [data]);
+
   return (
     <>
       <ScrollRestoration />
@@ -87,10 +96,6 @@ const Page = () => {
           {!isLoading ? (
             <>
               <Helmet>
-                <title
-                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-                  dangerouslySetInnerHTML={{ __html: data!.title }}
-                ></title>
                 <meta
                   name="description"
                   content={data?.yoast.yoast_wpseo_metadesc}
