@@ -10,17 +10,22 @@ header {
   left: 0;
 
   .container {
-    @include var.grid(3, 1, 3em, center, center);
+    @include var.grid(3, 1, 2em, center, center);
     width: 98%;
     padding: 0 1rem;
     position: absolute;
     top: 5px;
     left: 1%;
     border: 1px solid var.$primaryColor;
-    padding: 1rem 4rem;
+    padding: 1rem rem;
     z-index: 1;
     background: white;
     min-height: 69px;
+
+    @include var.breakpoint(tablet) {
+      gap: 3em;
+      padding: 1rem 4rem;
+    }
 
     @include var.breakpoint(desktop) {
       gap: 1.7em;
@@ -44,9 +49,21 @@ header {
     }
   }
 
-  @include var.breakpoint(desktop) {
-    .menu {
+  .menu {
+    grid-column: 3;
+
+    @include var.breakpoint(desktop) {
       width: 100%;
+      grid-column: 2;
+    }
+  }
+
+  .contact {
+    grid-row: 1;
+    grid-column: 2;
+
+    @include var.breakpoint(desktop) {
+      grid-column: 3;
     }
   }
 

@@ -6,6 +6,11 @@
   h1 {
     text-transform: uppercase;
     max-width: 300px;
+    text-align: center;
+
+    @include var.breakpoint(420px) {
+      text-align: left;
+    }
 
     @include var.breakpoint(600px) {
       max-width: 620px;
@@ -36,7 +41,6 @@
   .left {
     max-width: 98%;
     margin-inline: auto;
-    z-index: 10;
     @include var.flex(center, start, 0, column);
 
     @include var.breakpoint(1400px) {
@@ -51,6 +55,10 @@
 
   .title {
     @include var.flex(center, center, 0.5em, column);
+
+    @include var.breakpoint(420px) {
+      flex-direction: row;
+    }
 
     @include var.breakpoint(550px) {
       flex-direction: row;
@@ -107,11 +115,19 @@
   .arrow {
     position: absolute;
     display: none;
+    z-index: 100;
+
+    @include var.breakpoint(428px) {
+      display: block;
+      top: 18%;
+      right: 5%;
+    }
 
     @include var.breakpoint(tablet) {
       display: block;
       bottom: 60%;
       right: 10%;
+      top: inset;
     }
     @include var.breakpoint(wide) {
       right: 13%;
@@ -203,7 +219,10 @@
 
     p,
     h2 {
-      margin-inline: 3.2rem;
+      margin-inline: 1.7rem;
+      @include var.breakpoint(tablet) {
+        margin-inline: 3.2rem;
+      }
     }
 
     p {
@@ -307,10 +326,13 @@
 
   .list-lien {
     margin-top: 5.2rem;
-    @include var.flex(center, start, 0.5em, column);
+    @include var.flex(center, center, 0.5em, column);
+    max-width: 90%;
+    margin-inline: auto;
 
     @include var.breakpoint(tablet) {
       flex-direction: row;
+      align-items: center;
       gap: 5.2rem;
     }
 
@@ -432,12 +454,14 @@
 
   .list-container {
     width: 70%;
-    align-self: end;
-    @include var.flex(center, center, 5.2rem, column);
+    align-self: start;
+    @include var.flex(center, start, 5.2rem, column);
     margin-top: 2em;
+    margin-left: 1em;
 
     @include var.breakpoint(tablet) {
       align-items: start;
+      margin-left: 0;
     }
 
     li {

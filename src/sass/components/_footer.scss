@@ -53,9 +53,13 @@ footer {
   .decoration {
     position: absolute;
     top: -15%;
-    right: 0;
+    right: -1em;
     height: 100%;
     width: 100%;
+
+    @include var.breakpoint(tablet) {
+      right: 0;
+    }
 
     @include var.breakpoint(1200px) {
       height: 123%;

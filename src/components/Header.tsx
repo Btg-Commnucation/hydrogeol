@@ -74,7 +74,10 @@ const Header = () => {
               />
             </Link>
             <NavLink />
-            <Link to={`/${extractSlugFromUrl(options.lien_page_contact.url)}`}>
+            <Link
+              to={`/${extractSlugFromUrl(options.lien_page_contact.url)}`}
+              className="contact"
+            >
               <img
                 src={options.image_contact.url}
                 alt={options.image_contact.alt}

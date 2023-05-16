@@ -2,7 +2,7 @@
 
 .valeurs {
   @include var.flex(center, center, 0, column);
-  padding-block: 8rem 20rem;
+  padding-block: 10rem 5rem;
   background: var.$secondaryColor;
 
   h1 {
@@ -10,7 +10,7 @@
   }
 
   @include var.breakpoint(tablet) {
-    padding-bottom: 0;
+    padding-block: 8rem 0;
   }
 
   @include var.breakpoint(desktop) {
@@ -162,6 +162,14 @@
   }
 
   & + footer {
+    @include var.breakpoint(tablet) {
+      margin-top: 0;
+    }
+  }
+
+  & + footer {
+    margin-top: 5rem;
+
     @include var.breakpoint(tablet) {
       margin-top: 0;
     }
