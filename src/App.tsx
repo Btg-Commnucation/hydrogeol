@@ -9,6 +9,7 @@ import { setPage } from "./feature/page.slice";
 import Loading from "./components/Loading";
 import { AcfAccueilType } from "./assets/type";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 type AccueilType = {
   title: string;
@@ -17,6 +18,7 @@ type AccueilType = {
   template: string;
   slug: string;
   permalink: string;
+  yoast: { [key: string]: string };
 };
 
 const App = () => {
@@ -86,6 +88,13 @@ const App = () => {
       <Header />
       {!isLoading ? (
         <>
+          <Helmet>
+            <title>{data!.title}</title>
+            <meta
+              name="description"
+              content={data!.yoast.yoast_wpseo_metadesc}
+            />
+          </Helmet>
           <section className="hero-banner__front">
             <div className="left">
               <div className="title">

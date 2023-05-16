@@ -12,6 +12,7 @@ import Default from "./Default";
 import { AcfType } from "../assets/type";
 import Qualifications from "./Qualifications";
 import ErrorPage from "./ErrorPage";
+import { Helmet } from "react-helmet";
 
 export interface RootState {
   page: {
@@ -30,6 +31,7 @@ export type PageType = {
   template: string;
   slug: string;
   permalink: string;
+  yoast: { [key: string]: string };
 };
 
 const Page = () => {
@@ -93,6 +95,13 @@ const Page = () => {
           <Header />
           {!isLoading ? (
             <>
+              <Helmet>
+                <title>{data?.title}</title>
+                <meta
+                  name="description"
+                  content={data?.yoast.yoast_wpseo_metadesc}
+                />
+              </Helmet>
               {data?.template === "template-contact" && <Contact page={data} />}
               {data?.template === "template-valeurs" && <Valeurs page={data} />}
               {data?.template === "default" && <Default page={data} />}
