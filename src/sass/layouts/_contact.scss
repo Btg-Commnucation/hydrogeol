@@ -2,7 +2,7 @@
 
 .contact-page {
   background: var.$secondaryColor;
-  padding-block: 8rem 16rem;
+  padding-block: 10rem 6rem;
 
   @include var.breakpoint(var.$desktop) {
     @include var.flex(end, center, 0);
