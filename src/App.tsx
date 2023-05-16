@@ -89,7 +89,9 @@ const App = () => {
       {!isLoading ? (
         <>
           <Helmet>
-            <title>{data!.title}</title>
+            <title dangerouslySetInnerHTML={{ __html: data!.title }}>
+              {data!.title}
+            </title>
             <meta
               name="description"
               content={data!.yoast.yoast_wpseo_metadesc}

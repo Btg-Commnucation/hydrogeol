@@ -87,7 +87,10 @@ const Page = () => {
           {!isLoading ? (
             <>
               <Helmet>
-                <title>{data?.title}</title>
+                <title
+                  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                  dangerouslySetInnerHTML={{ __html: data!.title }}
+                ></title>
                 <meta
                   name="description"
                   content={data?.yoast.yoast_wpseo_metadesc}
