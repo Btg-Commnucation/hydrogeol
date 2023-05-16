@@ -10,14 +10,11 @@
   }
 
   @include var.breakpoint(tablet) {
-    padding-block: 8rem 0;
-  }
-
-  @include var.breakpoint(desktop) {
-    height: 100vh;
+    padding-block: 10rem 0;
   }
 
   @include var.breakpoint(var.$wide) {
+    height: 100vh;
     display: grid;
     grid-template-columns: 1fr 0.75fr;
     justify-items: center;
@@ -72,7 +69,7 @@
     }
 
     @include var.breakpoint(var.$wide) {
-      margin-top: 18.4rem;
+      margin-top: 8.5em;
       gap: 3.2rem;
     }
   }

@@ -127,7 +127,7 @@
       display: block;
       bottom: 60%;
       right: 10%;
-      top: inset;
+      top: unset;
     }
     @include var.breakpoint(wide) {
       right: 13%;
