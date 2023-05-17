@@ -28,7 +28,7 @@
 
       .left {
         margin-bottom: 2rem;
-        max-width: 98%;
+        max-width: 93%;
         margin-inline: auto;
 
         @include var.breakpoint(tablet) {
@@ -192,7 +192,7 @@
 
     .container {
       @include var.flex(center, start, 0.8em, column);
-      max-width: 98%;
+      max-width: 93%;
       margin: 0 auto;
 
       @include var.breakpoint(tablet) {
@@ -266,7 +266,7 @@
     margin-top: calc(51px + (120 - 51) * ((100vw - 320px) / (1920 - 320)));
 
     .container {
-      max-width: 98%;
+      max-width: 93%;
       margin-inline: auto;
       @include var.flex(center, center, 0, column);
 
@@ -365,7 +365,7 @@
 }
 
 .page + footer {
-  margin-top: 5rem;
+  margin-top: 15rem;
 
   @include var.breakpoint(tablet) {
     margin-top: 16rem;

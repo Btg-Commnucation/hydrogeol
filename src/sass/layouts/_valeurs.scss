@@ -2,11 +2,20 @@
 
 .valeurs {
   @include var.flex(center, center, 0, column);
-  padding-block: 10rem 5rem;
+  padding-block: 10rem 20rem;
   background: var.$secondaryColor;
+
+  @include var.breakpoint(tablet) {
+    padding-bottom: 5rem;
+  }
 
   h1 {
     max-width: 300px;
+
+    span:not(.initial) {
+      top: 1.5%;
+      left: 1.5%;
+    }
   }
 
   @include var.breakpoint(tablet) {
@@ -46,10 +55,12 @@
 
     @include var.breakpoint(desktop) {
       height: 100vh;
+      max-height: 100vh;
 
       img {
         height: 100%;
         object-fit: initial;
+        max-height: 100%;
       }
     }
 
@@ -60,7 +71,7 @@
   }
 
   .left {
-    width: 95%;
+    width: 93%;
     margin: 0 auto;
     @include var.flex(center, start, 2rem, column);
 
@@ -165,10 +176,6 @@
   }
 
   & + footer {
-    margin-top: 5rem;
-
-    @include var.breakpoint(tablet) {
-      margin-top: 0;
-    }
+    margin-top: 0;
   }
 }

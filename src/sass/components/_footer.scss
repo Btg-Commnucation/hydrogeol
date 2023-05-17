@@ -84,7 +84,7 @@ footer {
   }
 
   .footer-text {
-    @include var.text(23, 400, black, none, 1, true, 16, 320, 1920);
+    @include var.text(23px, 400, black, none, 1, false);
     width: 100%;
     line-height: 1.2;
 

@@ -68,7 +68,7 @@
       gap: 1.5em;
 
       display: grid;
-      grid-template-columns: 0.4fr 1fr 0.2fr;
+      grid-template-columns: 0.4fr 1fr 0.4fr;
       justify-items: center;
       align-items: center;
 
@@ -91,21 +91,21 @@
 
     @include var.breakpoint(tablet) {
       @include var.flex(center, center, 0.1em, column);
-      width: calc(100px + (188 - 100) * ((100vw - 320px) / (1920 - 320)));
-      height: calc(100px + (188 - 100) * ((100vw - 320px) / (1920 - 320)));
+      width: calc(110px + (188 - 100) * ((100vw - 320px) / (1920 - 320)));
+      height: calc(110px + (188 - 100) * ((100vw - 320px) / (1920 - 320)));
       border-radius: 50%;
       border: 1px solid var.$primaryColor;
       margin-top: 2rem;
 
       strong {
-        font-size: calc(16px + (26 - 16) * ((100vw - 320px) / (1920 - 320)));
+        font-size: calc(17px + (26 - 16) * ((100vw - 320px) / (1920 - 320)));
         font-weight: 700;
         color: var.$primaryColor;
         text-align: center;
       }
 
       a {
-        font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
+        font-size: calc(15px + (20 - 14) * ((100vw - 320px) / (1920 - 320)));
         font-weight: 400;
         color: var.$primaryColor;
       }
@@ -206,7 +206,7 @@
 
     @include var.breakpoint(tablet) {
       figure {
-        width: 57%;
+        width: 53%;
         align-self: end;
       }
     }
@@ -259,7 +259,7 @@
     margin-top: 12rem;
   }
   .container {
-    max-width: 98%;
+    max-width: 93%;
     margin-inline: auto;
 
     @include var.breakpoint(desktop) {
@@ -338,6 +338,7 @@
 
     @include var.breakpoint(wide) {
       flex-direction: column;
+      align-itms: start;
       margin-top: 0;
     }
 
@@ -385,7 +386,7 @@
   }
 
   .container {
-    max-width: 98%;
+    max-width: 93%;
     margin-inline: auto;
 
     @include var.breakpoint(tablet) {
@@ -453,7 +454,7 @@
   }
 
   .list-container {
-    width: 70%;
+    width: 100%;
     align-self: start;
     @include var.flex(center, start, 5.2rem, column);
     margin-top: 2em;
@@ -462,6 +463,10 @@
     @include var.breakpoint(tablet) {
       align-items: start;
       margin-left: 0;
+    }
+
+    @include var.breakpoint(dekstop) {
+      width: 70%;
     }
 
     li {

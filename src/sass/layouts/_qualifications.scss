@@ -10,6 +10,10 @@
     }
   }
 
+  span:not(.initial) {
+    left: 0.65%;
+  }
+
   .container {
     margin-inline: auto;
     padding-top: 6em;
@@ -158,7 +162,7 @@
   }
 
   .left {
-    max-width: 98%;
+    max-width: 93%;
     margin: 0 auto;
 
     @include var.breakpoint(tablet) {
@@ -174,7 +178,7 @@
     }
 
     .container {
-      max-width: 98%;
+      max-width: 93%;
       margin-inline: auto;
       padding-top: 1em;
 
@@ -318,14 +322,14 @@
 
     @include var.breakpoint(wide) {
       padding-right: 0;
-      margin-right: 7em;
+      margin-right: 6em;
     }
   }
 
   .references {
     .container {
       margin-top: 3em;
-      max-width: 98%;
+      max-width: 93%;
       padding-top: 0;
       @include var.flex(center, center, 0, column);
 
@@ -375,11 +379,12 @@
       @include var.flex(center, center, 8rem, column);
 
       @include var.breakpoint(tablet) {
-        @include var.grid(2, auto, 0, center, center);
+        @include var.grid(2, auto, 1em, center, start);
       }
 
       @include var.breakpoint(1400px) {
         grid-template-columns: repeat(3, 1fr);
+        gap: 0;
       }
 
       li {

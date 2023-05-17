@@ -6,7 +6,7 @@
 
   @include var.breakpoint(var.$desktop) {
     @include var.flex(end, center, 0);
-    padding-top: 0;
+    padding-block: 0 19rem;
   }
 
   .container {

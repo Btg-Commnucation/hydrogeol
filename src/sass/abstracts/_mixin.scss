@@ -1,58 +1,71 @@
 @use "variables" as var;
 
 @mixin breakpoint($breakpoint) {
-    @if $breakpoint == "tablet" {
-        @media (min-width: #{var.$tablet}) {
-            @content;
-        }
-    } @else if $breakpoint == "desktop" {
-        @media (min-width: #{var.$desktop}) {
-            @content;
-        }
-    } @else if $breakpoint == "wide" {
-        @media (min-width: #{var.$wide}) {
-            @content;
-        }
-    } @else {
-        @media (min-width: $breakpoint) {
-            @content;
-        }
+  @if $breakpoint == "tablet" {
+    @media (min-width: #{var.$tablet}) {
+      @content;
     }
+  } @else if $breakpoint == "desktop" {
+    @media (min-width: #{var.$desktop}) {
+      @content;
+    }
+  } @else if $breakpoint == "wide" {
+    @media (min-width: #{var.$wide}) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $breakpoint) {
+      @content;
+    }
+  }
 }
 
 @mixin flex($justify, $align, $gap: 0, $direction: row) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify;
-    align-items: $align;
-    gap: $gap;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
 }
 
 @mixin grid($columns, $rows, $gap, $justify, $align) {
-    display: grid;
-    grid-template-columns: repeat($columns, 1fr);
-    @if $rows == auto {
-        grid-template-rows: auto;
-    } @else {
-        grid-template-rows: repeat($rows, 1fr);
-    }
-    justify-items: $justify;
-    align-items: $align;
-    gap: $gap;
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  @if $rows == auto {
+    grid-template-rows: auto;
+  } @else {
+    grid-template-rows: repeat($rows, 1fr);
+  }
+  justify-items: $justify;
+  align-items: $align;
+  gap: $gap;
 }
 
-@mixin text($size, $weight, $color, $transform, $spacing, $responsive: false, $minSize: null, $minWidth: null, $maxWidth: null) {
-    @if $responsive {
-        @include responsiveText($minSize, $size, $minWidth, $maxWidth);
-    } @else {
-        font-size: $size;
-    }
-    font-weight: $weight;
-    color: $color;
-    text-transform: $transform;
-    letter-spacing: $spacing;
+@mixin text(
+  $size,
+  $weight,
+  $color,
+  $transform,
+  $spacing,
+  $responsive: false,
+  $minSize: null,
+  $minWidth: null,
+  $maxWidth: null
+) {
+  @if $responsive {
+    @include responsiveText($minSize, $size, $minWidth, $maxWidth);
+  } @else {
+    font-size: $size;
+  }
+  font-weight: $weight;
+  color: $color;
+  text-transform: $transform;
+  letter-spacing: $spacing;
 }
 
 @mixin responsiveText($minSize, $maxSize, $minWidth, $maxWidth) {
-    font-size: calc(#{$minSize}px + (#{$maxSize} - #{$minSize}) * ((100vw - #{$minWidth}px) / (#{$maxWidth} - #{$minWidth})));
+  font-size: calc(
+    #{$minSize}px + (#{$maxSize} - #{$minSize}) *
+      ((100vw - #{$minWidth}px) / (#{$maxWidth} - #{$minWidth}))
+  );
 }
