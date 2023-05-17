@@ -6,6 +6,9 @@
     position: relative;
 
     @include var.breakpoint(wide) {
+      min-height: 100vh;
+    }
+    @include var.breakpoint(1600px) {
       height: 100vh;
     }
   }
@@ -143,7 +146,7 @@
 
     @include var.breakpoint(wide) {
       height: 100%;
-      padding: 3.5em 2em 0 2em;
+      padding: 3.5em 2em 1em 2em;
     }
 
     .wp-block-columns {

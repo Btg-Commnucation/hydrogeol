@@ -30,12 +30,13 @@
     justify-items: center;
     align-items: center;
     margin-top: 0;
-    height: 100vh;
+    min-height: 100vh;
     gap: 0;
   }
 
   @include var.breakpoint(1600px) {
     grid-template-columns: 1fr 0.75fr;
+    height: 100vh;
   }
 
   .left {
