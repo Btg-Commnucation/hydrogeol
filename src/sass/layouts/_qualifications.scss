@@ -6,7 +6,7 @@
     position: relative;
 
     @include var.breakpoint(wide) {
-      min-height: 100vh;
+      min-height: 100%;
     }
     @include var.breakpoint(1600px) {
       height: 100vh;
