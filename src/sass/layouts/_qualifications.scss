@@ -149,6 +149,19 @@
       padding: 3.5em 2em 1em 2em;
     }
 
+    @include var.breakpoint(1400px) {
+      height: 100vh;
+      padding: 1.5em 2em 1em 2em;
+      gap: 1em;
+      align-self: start;
+    }
+
+    @include var.breakpoint(1700px) {
+      padding: 3.5em 2em 1em 2em;
+      gap: 2em;
+      height: 100%;
+    }
+
     .wp-block-columns {
       @include var.flex(center, center, 2em, column);
 
