@@ -276,6 +276,10 @@
     margin-block: 2.8rem 1.5rem;
     @include var.breakpoint(wide) {
       margin-block: 2.8rem 0;
+      max-width: 700px;
+    }
+    @include var.breakpoint(1600px) {
+      max-width: 100%;
     }
   }
 
