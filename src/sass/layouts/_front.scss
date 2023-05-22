@@ -343,7 +343,7 @@
 
     @include var.breakpoint(wide) {
       flex-direction: column;
-      align-itms: start;
+      align-items: start;
       margin-top: 0;
     }
 

@@ -72,6 +72,11 @@
       position: relative;
       top: -0.2em;
     }
+
+    span:not(.initial) {
+      top: 1.5%;
+      left: 1%;
+    }
   }
 
   .content {
