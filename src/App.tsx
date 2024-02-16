@@ -72,6 +72,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    console.log('Bienvenue sur le site de Hydrogeol');
     document.title = `Hydrogéologue Conseil`;
     if (Object.keys(page).length === 0 && page.constructor === Object) {
       getPage
