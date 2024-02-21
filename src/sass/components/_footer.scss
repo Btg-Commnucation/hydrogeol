@@ -8,6 +8,10 @@ footer {
 
   @include var.breakpoint(tablet) {
     @include var.flex(end, center);
+    padding-block: 2.6rem 5rem;
+  }
+  
+  @include var.breakpoint(desktop) {
     padding-block: 2.6rem 2rem;
   }
   
