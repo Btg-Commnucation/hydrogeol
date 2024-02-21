@@ -4,10 +4,30 @@ footer {
   width: 100%;
   background: var.$primaryColor;
   margin-top: 16rem;
+  padding-bottom: 3rem;
 
   @include var.breakpoint(tablet) {
     @include var.flex(end, center);
-    padding-block: 2.6rem 0;
+    padding-block: 2.6rem 2rem;
+  }
+  
+  #widgetPlusQuePro {
+    border: none;
+    margin-inline: auto;
+    display: flow-root;
+    
+    @include var.breakpoint(tablet) {
+      position: fixed;
+      bottom: 2%;
+      right: 0;
+      left: 0;
+    }
+    
+    @include var.breakpoint(desktop) {
+      left: unset;
+      right: 1%;
+      z-index: 999;
+    }
   }
 
   .container {

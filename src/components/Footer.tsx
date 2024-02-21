@@ -3,6 +3,7 @@ import ky from "ky";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setOptions } from "../feature/menu.slice";
+import WidgetPlusQuePro from './WidgetPlusQuePro.tsx';
 
 type Response = { [key: string]: any };
 interface RootState {
@@ -63,6 +64,7 @@ const Footer = () => {
           </div>
         </div>
       )}
+      <WidgetPlusQuePro />
     </footer>
   );
 };

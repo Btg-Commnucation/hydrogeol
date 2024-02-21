@@ -62,7 +62,7 @@ const Qualifications: FC<PageProps> = ({ page }) => {
               {page.acf.membres &&
                 page.acf.membres.map(
                   (membre: { [key: string]: string }, index: number) => (
-                    <li key={index}>
+                    <li className={ page.acf.membres!.length % 2 ? "impair" : "" } key={index}>
                       <h4>{membre.prenom_et_nom}</h4>
                       <strong>{membre.annees_dexperience}</strong>
                       <div
