@@ -37,7 +37,7 @@
   }
 
   @include var.breakpoint(1500px) {
-    height: 120vh;
+    //height: 120vh;
   }
 
   @include var.breakpoint(1700px) {
