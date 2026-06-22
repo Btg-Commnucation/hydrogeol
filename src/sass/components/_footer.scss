@@ -15,25 +15,6 @@ footer {
     padding-block: 2.6rem 2rem;
   }
   
-  #widgetPlusQuePro {
-    border: none;
-    margin-inline: auto;
-    display: flow-root;
-    
-    @include var.breakpoint(tablet) {
-      position: fixed;
-      bottom: 2%;
-      right: 0;
-      left: 0;
-    }
-    
-    @include var.breakpoint(desktop) {
-      left: unset;
-      right: 1%;
-      z-index: 999;
-    }
-  }
-
   .container {
     max-width: 95%;
     margin: 0 auto;
